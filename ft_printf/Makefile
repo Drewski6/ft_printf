@@ -29,15 +29,15 @@ SLIB = ar rcs
 all: $(NAME)
 
 $(NAME): $(OBJS) $(INCS)
-	@$(SLIB) $(NAME) -o $(OBJS)
+	$(SLIB) $(NAME) -o $(OBJS)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 clean:
-	@rm -f $(OBJS)
+	rm -f $(OBJS)
 
 fclean:	clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re:	fclean all
