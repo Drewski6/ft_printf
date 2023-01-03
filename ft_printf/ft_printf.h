@@ -20,5 +20,8 @@ int ft_printf(const char *, ...);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_putpercent(void);
+void	ft_dec_to_hex_lower(int n, int fd);
+void	ft_dec_to_hex_upper(int n, int fd);
 
 #endif

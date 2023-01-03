@@ -35,9 +35,12 @@ static int	format_switch(char c, va_list parg)
 	else if (c == 'i')
 		ft_putnbr_fd(va_arg(parg, int), 1);
 	//else if (c == 'u')
-	//else if (c == 'x')
-	//else if (c == 'X')
-	//else if (c == '%')
+	else if (c == 'x')
+		ft_dec_to_hex_lower(va_arg(parg, int), 1);
+	else if (c == 'X')
+		ft_dec_to_hex_upper(va_arg(parg, int), 1);
+	else if (c == '%')
+		ft_putpercent();
 	return (1);
 }
 

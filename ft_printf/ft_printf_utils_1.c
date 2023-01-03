@@ -84,3 +84,15 @@ void	ft_putnbr_fd(int n, int fd)
 	write(fd, &c, 1);
 	return ;
 }
+
+/*	*** ft_putpercent (42 put percent)
+ *	*** NOT libft ***
+ *
+ *	Writes a percent to stdout.
+ *	Returns nothing.
+ */
+
+ void	ft_putpercent(void)
+{
+	write(1, "%", 1);
+}
