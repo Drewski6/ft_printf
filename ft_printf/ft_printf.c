@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-/*  *** format_switch (format switch) ***
+/*  *** format_switch (format switch file descriptor) ***
  *
  *  Acts as a switch statement that determines which function to call
  *  Based on the format specifier used in ft_printf.
@@ -20,25 +20,31 @@
  *	Takes va_list pointer 'parg'.
  *	Runs va_arg macro to get the next item in va_list. At this point we know
  *	the type thanks to the switch statement.
+ *	Also takes a file descriptor.
  *	Returns integer 1 on success.
  */
 
-static int	format_switch(char c, va_list parg)
+static int	format_switch_fd(char c, va_list parg, int fd)
 {
 	if (c == 'c')
-		ft_putchar_fd(va_arg(parg, int), 1);
+		ft_putchar_fd(va_arg(parg, int), fd);
 	else if (c == 's')
-		ft_putstr_fd(va_arg(parg, char *), 1);
-	//else if (c == 'p')
+		ft_putstr_fd(va_arg(parg, char *), fd);
+	else if (c == 'p')
+	{
+		write (fd, "0x", 2);
+		ft_p_to_hex(va_arg(parg, void *), fd);
+	}
 	else if (c == 'd')
-		ft_putnbr_fd(va_arg(parg, int), 1);
+		ft_putnbr_fd(va_arg(parg, int), fd);
 	else if (c == 'i')
-		ft_putnbr_fd(va_arg(parg, int), 1);
-	//else if (c == 'u')
+		ft_putnbr_fd(va_arg(parg, int), fd);
+	else if (c == 'u')
+		ft_putunbr_fd((unsigned int)va_arg(parg, int), fd);
 	else if (c == 'x')
-		ft_dec_to_hex_lower(va_arg(parg, int), 1);
+		ft_dec_to_hex_lower(va_arg(parg, int), fd);
 	else if (c == 'X')
-		ft_dec_to_hex_upper(va_arg(parg, int), 1);
+		ft_dec_to_hex_upper(va_arg(parg, int), fd);
 	else if (c == '%')
 		ft_putpercent();
 	return (1);
@@ -57,20 +63,20 @@ int ft_printf(const char *s, ...)
 {
 	size_t	i;
 	va_list	parg;
+	int		fd;
 
 	i = 0;
+	fd = 1;
 	va_start(parg, s);
 	while (s[i])
 	{
 		if (s[i] == '%')
 		{
-			format_switch(s[i + 1], parg);
+			format_switch_fd(s[i + 1], parg, fd);
 			i++;
 		}
 		else
-		{
-			write(1, &s[i], 1);
-		}
+			write(fd, &s[i], 1);
 		i++;
 	}
 	va_end(parg);

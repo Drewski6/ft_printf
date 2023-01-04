@@ -81,3 +81,45 @@ void	ft_dec_to_hex_lower(int n, int fd)
 	write(fd, &c, 1);
 	return ;
 }
+
+/*	*** ft_p_to_hex (42 pointer to hexidecimal) ***
+ *
+ *	Takes a void pointer, casts it to an unsigned long long and
+ *	recursively calls ft_p_to_hex to print address as hexidecimal to
+ *	file descriptor.
+ *	Returns nothing.
+ */
+
+void	ft_p_to_hex(void *p, int fd)
+{
+	unsigned long long	nbl;
+	char	c;
+
+	nbl = (unsigned long long)p;
+	if (nbl / 16 != 0)
+		ft_p_to_hex((void *)(nbl / 16), fd);
+	if (nbl % 16 > 9)
+		c = ((nbl % 16) + 87);
+	else
+		c = ((nbl % 16) + '0');
+	write(fd, &c, 1);
+	return ;
+}
+
+/*	*** ft_putunbr_fd (42 put unsigned number file descriptor) ***
+ *
+ *	Takes a 
+ */
+
+void	ft_putunbr_fd(unsigned int n, int fd)
+{
+	unsigned long	nbl;
+	char	c;
+
+	nbl = (unsigned long)n;
+	if (nbl / 10 != 0)
+		ft_putunbr_fd(nbl / 10, fd);
+	c = (nbl % 10 + '0');
+	write(fd, &c, 1);
+	return ;
+}

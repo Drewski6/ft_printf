@@ -23,5 +23,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putpercent(void);
 void	ft_dec_to_hex_lower(int n, int fd);
 void	ft_dec_to_hex_upper(int n, int fd);
+void	ft_p_to_hex(void *p, int fd);
+void	ft_putunbr_fd(unsigned int n, int fd);
 
 #endif

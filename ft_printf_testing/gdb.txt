@@ -1,0 +1,35 @@
++define hook-next
+a.olut: No such file or directory.
++start
+No symbol table loaded.  Use the "file" command.
++exit
++define hook-next
+Reading symbols from a.out...
++start
+Temporary breakpoint 1 at 0x11b5: file test_ft_printf.c, line 8.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/a.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 1, main () at test_ft_printf.c:8
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print sample
+$1 = 0x5555555592a0 ""
++exit
