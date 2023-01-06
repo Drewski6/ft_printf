@@ -53,8 +53,12 @@ void	ft_putstr_fd(char *s, int fd, int *print_count)
 	size_t	str_len;
 
 	str_len = 0;
-	//if (s == 0)
-		//return ;
+	if (s == 0)
+	{
+		(*print_count) += 6;
+		write(fd, "(null)", 6);
+		return ;
+	}
 	str_len = ft_strlen(s);
 	write(fd, s, str_len);
 	(*print_count) += str_len;
