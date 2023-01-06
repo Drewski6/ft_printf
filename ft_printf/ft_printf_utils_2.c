@@ -18,7 +18,7 @@
  *	file descriptor.
  */
 
-void	ft_dec_to_hex_upper(int n, int fd, int *print_count)
+void	ft_dec_to_hex_upper(unsigned int n, int fd, int *print_count)
 {
 	long	nbl;
 	char	c;
@@ -57,7 +57,7 @@ void	ft_dec_to_hex_upper(int n, int fd, int *print_count)
  *	file descriptor.
  */
 
-void	ft_dec_to_hex_lower(int n, int fd, int *print_count)
+void	ft_dec_to_hex_lower(unsigned int n, int fd, int *print_count)
 {
 	long	nbl;
 	char	c;
@@ -77,7 +77,7 @@ void	ft_dec_to_hex_lower(int n, int fd, int *print_count)
 	}
 	if (nbl < 0)
 		if (nbl % 16 > 9)
-			c = (((nbl % 16) * -1) + 55);
+			c = (((nbl % 16) * -1) + 87);
 		else
 			c = (((nbl % 16) * -1) + '0');
 	else

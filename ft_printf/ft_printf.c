@@ -12,6 +12,32 @@
 
 #include "ft_printf.h"
 
+/*	*** ft_pointer_handle (42 pointer handler) ***
+ *
+ *	Additional function to check NULL status of pointer.
+ *	If NULL, prints "(nil)" and returns.
+ *	If not NULL, prints the address.
+ */
+
+void	ft_pointer_handle(va_list parg, int fd, int *print_count)
+{
+	void	*ptr;
+
+	ptr = va_arg(parg, void *);
+	if (!ptr)
+	{
+		write(fd, "(nil)", 5);
+		*print_count += 5;
+	}
+	else
+	{
+		write (fd, "0x", 2);
+		*print_count += 2;
+		ft_p_to_hex(ptr, fd, print_count);
+	}
+}
+
+
 /*  *** format_switch (format switch file descriptor) ***
  *
  *  Acts as a switch statement that determines which function to call
@@ -31,10 +57,7 @@ static int	format_switch_fd(char c, va_list parg, int fd, int *print_count)
 	else if (c == 's')
 		ft_putstr_fd(va_arg(parg, char *), fd, print_count);
 	else if (c == 'p')
-	{
-		write (fd, "0x", 2);
-		ft_p_to_hex(va_arg(parg, void *), fd, print_count);
-	}
+		ft_pointer_handle(parg, fd, print_count);
 	else if (c == 'd')
 		ft_putnbr_fd(va_arg(parg, int), fd, print_count);
 	else if (c == 'i')

@@ -4,10 +4,14 @@
 
 int main (void)
 {
-	char *sample;
+	char	*sample;
+	char	*sample_n;
 
 	sample = (char *)malloc(sizeof(char) * 12);
+	sample_n = NULL;
 
+	// Working
+	ft_printf("*** Working ***\n");
 	ft_printf(" %d\n", ft_printf("%c", '0'));
 	ft_printf(" %d\n", ft_printf("Testing character: %c", '0'));
 	ft_printf(" %d\n", ft_printf("Testing string: %s", "Here is a test string."));
@@ -15,10 +19,18 @@ int main (void)
 	ft_printf(" %d\n", ft_printf("Testing integer: %i", 67890));
 	ft_printf(" %d\n", ft_printf("Testing percent: %%"));
 	ft_printf(" %d\n", ft_printf("Testing hexidecimal lower: %x", 1234));
+	ft_printf(" %d\n", ft_printf("Testing hexidecimal lower: %x", -1234));
 	ft_printf(" %d\n", ft_printf("Testing hexidecimal upper: %X", 1234));
-	ft_printf(" %d\n", ft_printf("Testing pointer: %p", (void *)sample));
 	ft_printf(" %d\n", ft_printf("Testing unsigned decimal: %u", -12345));
+	ft_printf(" %d\n", ft_printf("Testing ft_pointer: %p", (void *)sample));
+	//	printf(" %d\n", printf("Testing    pointer: %p", (void *)sample));
+	ft_printf(" %d\n", ft_printf("Testing ft_pointer: %p", (void *)sample_n));
+	//	printf(" %d\n", printf("Testing    pointer: %p", (void *)sample_n));
+
+	// Issues
+	ft_printf("\n*** Issues ***\n");
 	ft_printf(" %d\n", ft_printf(" NULL %s NULL ", NULL));
+	printf(" %d\n", printf(" NULL %s NULL ", NULL));
 
 	free(sample);
 	return (0);

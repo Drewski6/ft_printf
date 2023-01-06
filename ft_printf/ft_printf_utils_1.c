@@ -13,7 +13,6 @@
 #include "ft_printf.h"
 
 /*  *** ft_putchar_fd (42 put character file descriptor) ***
- *	*** from libft ***
  *
  *  Outputs the character 'c' to file descriptor.
  *  Returns nothing.
@@ -44,7 +43,6 @@ size_t	ft_strlen(const char *str)
 }
 
 /*  *** ft_putstr_fd (42 put string file descriptor) ***
- *	*** from libft ***
  *
  *  Outputs the string 's' to the given file descriptor.
  *  Returns nothing.
@@ -96,7 +94,6 @@ void	ft_putnbr_fd(int n, int fd, int *print_count)
 }
 
 /*	*** ft_putpercent (42 put percent)
- *	*** NOT libft ***
  *
  *	Writes a percent to stdout.
  *	Returns nothing.
