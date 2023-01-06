@@ -24,32 +24,12 @@ void	ft_dec_to_hex_upper(unsigned int n, int fd, int *print_count)
 	char	c;
 
 	nbl = (long)n;
-	if (nbl < 0)
-	{
-		write(fd, "-", 1);
-		(*print_count)++;
-	}
 	if (nbl / 16 != 0)
-	{
-		if (nbl < 0)
-			ft_dec_to_hex_upper((nbl / 16) * -1, fd, print_count);
-		else
-			ft_dec_to_hex_upper(nbl / 16, fd, print_count);
-	}
-	if (nbl < 0)
-	{
-		if (nbl % 16 > 9)
-			c = (((nbl % 16) * -1) + 55);
-		else
-			c = (((nbl % 16) * -1) + '0');
-	}
+		ft_dec_to_hex_upper(nbl / 16, fd, print_count);
+	if (nbl % 16 > 9)
+		c = ((nbl % 16) + 55);
 	else
-	{
-		if (nbl % 16 > 9)
-			c = ((nbl % 16) + 55);
-		else
-			c = ((nbl % 16) + '0');
-	}
+		c = ((nbl % 16) + '0');
 	write(fd, &c, 1);
 	(*print_count)++;
 	return ;
@@ -67,32 +47,12 @@ void	ft_dec_to_hex_lower(unsigned int n, int fd, int *print_count)
 	char	c;
 
 	nbl = (long)n;
-	if (nbl < 0)
-	{
-		write(fd, "-", 1);
-		(*print_count)++;
-	}
 	if (nbl / 16 != 0)
-	{
-		if (nbl < 0)
-			ft_dec_to_hex_lower((nbl / 16) * -1, fd, print_count);
-		else
-			ft_dec_to_hex_lower(nbl / 16, fd, print_count);
-	}
-	if (nbl < 0)
-	{
-		if (nbl % 16 > 9)
-			c = (((nbl % 16) * -1) + 87);
-		else
-			c = (((nbl % 16) * -1) + '0');
-	}
+		ft_dec_to_hex_lower(nbl / 16, fd, print_count);
+	if (nbl % 16 > 9)
+		c = ((nbl % 16) + 87);
 	else
-	{
-		if (nbl % 16 > 9)
-			c = ((nbl % 16) + 87);
-		else
-			c = ((nbl % 16) + '0');
-	}
+		c = ((nbl % 16) + '0');
 	write(fd, &c, 1);
 	(*print_count)++;
 	return ;
