@@ -24,29 +24,29 @@
  *	Returns integer 1 on success.
  */
 
-static int	format_switch_fd(char c, va_list parg, int fd)
+static int	format_switch_fd(char c, va_list parg, int fd, int *print_count)
 {
 	if (c == 'c')
-		ft_putchar_fd(va_arg(parg, int), fd);
+		ft_putchar_fd(va_arg(parg, int), fd, print_count);
 	else if (c == 's')
-		ft_putstr_fd(va_arg(parg, char *), fd);
+		ft_putstr_fd(va_arg(parg, char *), fd, print_count);
 	else if (c == 'p')
 	{
 		write (fd, "0x", 2);
-		ft_p_to_hex(va_arg(parg, void *), fd);
+		ft_p_to_hex(va_arg(parg, void *), fd, print_count);
 	}
 	else if (c == 'd')
-		ft_putnbr_fd(va_arg(parg, int), fd);
+		ft_putnbr_fd(va_arg(parg, int), fd, print_count);
 	else if (c == 'i')
-		ft_putnbr_fd(va_arg(parg, int), fd);
+		ft_putnbr_fd(va_arg(parg, int), fd, print_count);
 	else if (c == 'u')
-		ft_putunbr_fd((unsigned int)va_arg(parg, int), fd);
+		ft_putunbr_fd((unsigned int)va_arg(parg, int), fd, print_count);
 	else if (c == 'x')
-		ft_dec_to_hex_lower(va_arg(parg, int), fd);
+		ft_dec_to_hex_lower(va_arg(parg, int), fd, print_count);
 	else if (c == 'X')
-		ft_dec_to_hex_upper(va_arg(parg, int), fd);
+		ft_dec_to_hex_upper(va_arg(parg, int), fd, print_count);
 	else if (c == '%')
-		ft_putpercent();
+		ft_putpercent(print_count);
 	return (1);
 }
 
@@ -64,21 +64,26 @@ int ft_printf(const char *s, ...)
 	size_t	i;
 	va_list	parg;
 	int		fd;
+	int		print_count;
 
 	i = 0;
 	fd = 1;
+	print_count = 0;
 	va_start(parg, s);
 	while (s[i])
 	{
 		if (s[i] == '%')
 		{
-			format_switch_fd(s[i + 1], parg, fd);
+			format_switch_fd(s[i + 1], parg, fd, &print_count);
 			i++;
 		}
 		else
+		{
 			write(fd, &s[i], 1);
+			print_count++;
+		}
 		i++;
 	}
 	va_end(parg);
-	return (i);
+	return (print_count);
 }

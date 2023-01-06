@@ -19,9 +19,10 @@
  *  Returns nothing.
  */
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd, int *print_count)
 {
 	write(fd, &c, 1);
+	(*print_count)++;
 }
 
 /*  *** ft_strlen (42 string length) ***
@@ -49,11 +50,16 @@ size_t	ft_strlen(const char *str)
  *  Returns nothing.
  */
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd, int *print_count)
 {
-	if (s == 0)
-		return ;
-	write(fd, s, ft_strlen(s));
+	size_t	str_len;
+
+	str_len = 0;
+	//if (s == 0)
+		//return ;
+	str_len = ft_strlen(s);
+	write(fd, s, str_len);
+	(*print_count) += str_len;
 }
 
 /*  *** ft_putnbr_fd (42 put number file descriptor) ***
@@ -62,26 +68,30 @@ void	ft_putstr_fd(char *s, int fd)
  *  Returns nothing.
  */
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd, int *print_count)
 {
 	long	nbl;
 	char	c;
 
 	nbl = (long)n;
 	if (nbl < 0)
+	{
 		write(fd, "-", 1);
+		(*print_count)++;
+	}
 	if (nbl / 10 != 0)
 	{
 		if (nbl < 0)
-			ft_putnbr_fd((nbl / 10) * -1, fd);
+			ft_putnbr_fd((nbl / 10) * -1, fd, print_count);
 		else
-			ft_putnbr_fd(nbl / 10, fd);
+			ft_putnbr_fd(nbl / 10, fd, print_count);
 	}
 	if (nbl < 0)
 		c = (((nbl % 10) * -1) + '0');
 	else
 		c = (nbl % 10 + '0');
 	write(fd, &c, 1);
+	(*print_count)++;
 	return ;
 }
 
@@ -92,7 +102,8 @@ void	ft_putnbr_fd(int n, int fd)
  *	Returns nothing.
  */
 
- void	ft_putpercent(void)
+ void	ft_putpercent(int *print_count)
 {
 	write(1, "%", 1);
+	(*print_count)++;
 }

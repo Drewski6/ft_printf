@@ -7,15 +7,17 @@ int main (void)
 
 	sample = (char *)malloc(sizeof(char) * 12);
 
-	printf("Testing character: %c\n", 'W');
-	printf("Testing string: %s\n", "Here is a test string.");
-	printf("Testing decimal: %d\n", 12345);
-	printf("Testing integer: %i\n", 67890);
-	printf("Testing percent: %%\n");
-	printf("Testing hexidecimal lower: %x\n", 1234);
-	printf("Testing hexidecimal upper: %X\n", 1234);
-	printf("Testing pointer: %p\n", (void *)sample);
-	printf("Testing unsigned decimal: %u\n", -12345);
+	printf(" %d\n", printf("%c", '0'));
+	printf(" %d\n", printf("Testing character: %c", '0'));
+	printf(" %d\n", printf("Testing string: %s", "Here is a test string."));
+	printf(" %d\n", printf("Testing decimal: %d", 12345));
+	printf(" %d\n", printf("Testing integer: %i", 67890));
+	printf(" %d\n", printf("Testing percent: %%"));
+	printf(" %d\n", printf("Testing hexidecimal lower: %x", 1234));
+	printf(" %d\n", printf("Testing hexidecimal upper: %X", 1234));
+	printf(" %d\n", printf("Testing pointer: %p", (void *)sample));
+	printf(" %d\n", printf("Testing unsigned decimal: %u", -12345));
+	printf(" %d\n", printf(" NULL %s NULL ", NULL));
 
 	free(sample);
 	return (0);

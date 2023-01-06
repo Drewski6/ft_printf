@@ -18,20 +18,23 @@
  *	file descriptor.
  */
 
-void	ft_dec_to_hex_upper(int n, int fd)
+void	ft_dec_to_hex_upper(int n, int fd, int *print_count)
 {
 	long	nbl;
 	char	c;
 
 	nbl = (long)n;
 	if (nbl < 0)
+	{
 		write(fd, "-", 1);
+		(*print_count)++;
+	}
 	if (nbl / 16 != 0)
 	{
 		if (nbl < 0)
-			ft_dec_to_hex_upper((nbl / 16) * -1, fd);
+			ft_dec_to_hex_upper((nbl / 16) * -1, fd, print_count);
 		else
-			ft_dec_to_hex_upper(nbl / 16, fd);
+			ft_dec_to_hex_upper(nbl / 16, fd, print_count);
 	}
 	if (nbl < 0)
 		if (nbl % 16 > 9)
@@ -44,6 +47,7 @@ void	ft_dec_to_hex_upper(int n, int fd)
 		else
 			c = ((nbl % 16) + '0');
 	write(fd, &c, 1);
+	(*print_count)++;
 	return ;
 }
 
@@ -53,20 +57,23 @@ void	ft_dec_to_hex_upper(int n, int fd)
  *	file descriptor.
  */
 
-void	ft_dec_to_hex_lower(int n, int fd)
+void	ft_dec_to_hex_lower(int n, int fd, int *print_count)
 {
 	long	nbl;
 	char	c;
 
 	nbl = (long)n;
 	if (nbl < 0)
+	{
 		write(fd, "-", 1);
+		(*print_count)++;
+	}
 	if (nbl / 16 != 0)
 	{
 		if (nbl < 0)
-			ft_dec_to_hex_lower((nbl / 16) * -1, fd);
+			ft_dec_to_hex_lower((nbl / 16) * -1, fd, print_count);
 		else
-			ft_dec_to_hex_lower(nbl / 16, fd);
+			ft_dec_to_hex_lower(nbl / 16, fd, print_count);
 	}
 	if (nbl < 0)
 		if (nbl % 16 > 9)
@@ -79,6 +86,7 @@ void	ft_dec_to_hex_lower(int n, int fd)
 		else
 			c = ((nbl % 16) + '0');
 	write(fd, &c, 1);
+	(*print_count)++;
 	return ;
 }
 
@@ -90,36 +98,38 @@ void	ft_dec_to_hex_lower(int n, int fd)
  *	Returns nothing.
  */
 
-void	ft_p_to_hex(void *p, int fd)
+void	ft_p_to_hex(void *p, int fd, int *print_count)
 {
 	unsigned long long	nbl;
 	char	c;
 
 	nbl = (unsigned long long)p;
 	if (nbl / 16 != 0)
-		ft_p_to_hex((void *)(nbl / 16), fd);
+		ft_p_to_hex((void *)(nbl / 16), fd, print_count);
 	if (nbl % 16 > 9)
 		c = ((nbl % 16) + 87);
 	else
 		c = ((nbl % 16) + '0');
 	write(fd, &c, 1);
+	(*print_count)++;
 	return ;
 }
 
 /*	*** ft_putunbr_fd (42 put unsigned number file descriptor) ***
  *
- *	Takes a 
+ *	Takes a number and prints as an unsigned integer to file descriptor.
  */
 
-void	ft_putunbr_fd(unsigned int n, int fd)
+void	ft_putunbr_fd(unsigned int n, int fd, int *print_count)
 {
 	unsigned long	nbl;
 	char	c;
 
 	nbl = (unsigned long)n;
 	if (nbl / 10 != 0)
-		ft_putunbr_fd(nbl / 10, fd);
+		ft_putunbr_fd(nbl / 10, fd, print_count);
 	c = (nbl % 10 + '0');
 	write(fd, &c, 1);
+	(*print_count)++;
 	return ;
 }
