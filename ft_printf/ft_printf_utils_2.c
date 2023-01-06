@@ -37,15 +37,19 @@ void	ft_dec_to_hex_upper(unsigned int n, int fd, int *print_count)
 			ft_dec_to_hex_upper(nbl / 16, fd, print_count);
 	}
 	if (nbl < 0)
+	{
 		if (nbl % 16 > 9)
 			c = (((nbl % 16) * -1) + 55);
 		else
 			c = (((nbl % 16) * -1) + '0');
+	}
 	else
+	{
 		if (nbl % 16 > 9)
 			c = ((nbl % 16) + 55);
 		else
 			c = ((nbl % 16) + '0');
+	}
 	write(fd, &c, 1);
 	(*print_count)++;
 	return ;
@@ -76,15 +80,19 @@ void	ft_dec_to_hex_lower(unsigned int n, int fd, int *print_count)
 			ft_dec_to_hex_lower(nbl / 16, fd, print_count);
 	}
 	if (nbl < 0)
+	{
 		if (nbl % 16 > 9)
 			c = (((nbl % 16) * -1) + 87);
 		else
 			c = (((nbl % 16) * -1) + '0');
+	}
 	else
+	{
 		if (nbl % 16 > 9)
 			c = ((nbl % 16) + 87);
 		else
 			c = ((nbl % 16) + '0');
+	}
 	write(fd, &c, 1);
 	(*print_count)++;
 	return ;
@@ -101,7 +109,7 @@ void	ft_dec_to_hex_lower(unsigned int n, int fd, int *print_count)
 void	ft_p_to_hex(void *p, int fd, int *print_count)
 {
 	unsigned long long	nbl;
-	char	c;
+	char				c;
 
 	nbl = (unsigned long long)p;
 	if (nbl / 16 != 0)
@@ -123,7 +131,7 @@ void	ft_p_to_hex(void *p, int fd, int *print_count)
 void	ft_putunbr_fd(unsigned int n, int fd, int *print_count)
 {
 	unsigned long	nbl;
-	char	c;
+	char			c;
 
 	nbl = (unsigned long)n;
 	if (nbl / 10 != 0)

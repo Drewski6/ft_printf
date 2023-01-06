@@ -103,7 +103,7 @@ void	ft_putnbr_fd(int n, int fd, int *print_count)
  *	Returns nothing.
  */
 
- void	ft_putpercent(int *print_count)
+void	ft_putpercent(int *print_count)
 {
 	write(1, "%", 1);
 	(*print_count)++;

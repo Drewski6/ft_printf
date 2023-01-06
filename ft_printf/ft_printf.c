@@ -37,7 +37,6 @@ void	ft_pointer_handle(va_list parg, int fd, int *print_count)
 	}
 }
 
-
 /*  *** format_switch (format switch file descriptor) ***
  *
  *  Acts as a switch statement that determines which function to call
@@ -82,7 +81,7 @@ static int	format_switch_fd(char c, va_list parg, int fd, int *print_count)
  *	Returns integer number of character processed from string 's'.
  */
 
-int ft_printf(const char *s, ...)
+int	ft_printf(const char *s, ...)
 {
 	size_t	i;
 	va_list	parg;
