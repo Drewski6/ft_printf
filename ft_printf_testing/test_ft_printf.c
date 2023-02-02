@@ -1,4 +1,4 @@
-#include "../ft_printf/ft_printf.h"
+#include "../ft_printf_working/ft_printf.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <stddef.h>
@@ -28,7 +28,7 @@ int main (void)
 	ft_printf(" %d\n", ft_printf("Testing ft_pointer: %p", (void *)sample_n));
 	//	printf(" %d\n", printf("Testing    pointer: %p", (void *)sample_n));
 	ft_printf(" %d\n", ft_printf(" NULL %s NULL ", NULL));
-	printf(" %d\n", printf(" NULL %s NULL ", (char *)NULL));
+	//printf(" %d\n", printf(" NULL %s NULL ", NULL));
 
 	// Issues
 	ft_printf("\n*** Issues ***\n");

@@ -97,14 +97,14 @@ void	ft_putnbr_fd(int n, int fd, int *print_count)
 	return ;
 }
 
-/*	*** ft_putpercent (42 put percent)
+/*	*** ft_putpercent_fd (42 put percent file descriptor)
  *
- *	Writes a percent to stdout.
+ *	Writes a percent sign to a given file descriptor 'fd'.
  *	Returns nothing.
  */
 
-void	ft_putpercent(int *print_count)
+void	ft_putpercent_fd(int fd, int *print_count)
 {
-	write(1, "%", 1);
+	write(fd, "%", 1);
 	(*print_count)++;
 }

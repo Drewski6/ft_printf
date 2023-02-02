@@ -19,7 +19,7 @@
  *	If not NULL, prints the address.
  */
 
-void	ft_pointer_handle(va_list parg, int fd, int *print_count)
+static void	ft_pointer_handle(va_list parg, int fd, int *print_count)
 {
 	void	*ptr;
 
@@ -31,9 +31,9 @@ void	ft_pointer_handle(va_list parg, int fd, int *print_count)
 	}
 	else
 	{
-		write (fd, "0x", 2);
+		write(fd, "0x", 2);
 		*print_count += 2;
-		ft_p_to_hex(ptr, fd, print_count);
+		ft_p_to_hex_fd(ptr, fd, print_count);
 	}
 }
 
@@ -64,11 +64,11 @@ static int	format_switch_fd(char c, va_list parg, int fd, int *print_count)
 	else if (c == 'u')
 		ft_putunbr_fd((unsigned int)va_arg(parg, int), fd, print_count);
 	else if (c == 'x')
-		ft_dec_to_hex_lower(va_arg(parg, int), fd, print_count);
+		ft_dec_to_hex_lower_fd(va_arg(parg, int), fd, print_count);
 	else if (c == 'X')
-		ft_dec_to_hex_upper(va_arg(parg, int), fd, print_count);
+		ft_dec_to_hex_upper_fd(va_arg(parg, int), fd, print_count);
 	else if (c == '%')
-		ft_putpercent(print_count);
+		ft_putpercent_fd(fd, print_count);
 	return (1);
 }
 
