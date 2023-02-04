@@ -12,41 +12,39 @@
 
 NAME = libftprintf.a
 
-# BONUS_NAME = libftprintf_bonus.a
-
 # ***** Sources *****
 
 SRCS = ft_printf.c \
     ft_printf_utils_1.c \
     ft_printf_utils_2.c
 
-SRCS_DIR = srcs/
+SRCS_DIR = srcs/mandatory/
 
 BONUS_SRCS = ft_printf_bonus.c \
     ft_printf_utils_1_bonus.c \
     ft_printf_utils_2_bonus.c
 
-BONUS_SRCS_DIR = b_srcs/
+BONUS_SRCS_DIR = srcs/bonus/
 
 # ***** Includes *****
 
 INCS = ft_printf.h
 
-INCS_DIR = includes/
+INCS_DIR = includes/mandatory/
 
 BONUS_INCS = ft_printf_bonus.h
 
-BONUS_INCS_DIR = b_includes/
+BONUS_INCS_DIR = includes/bonus/
 
 # ***** Objects *****
 
 OBJS = $(patsubst %.c,$(OBJS_DIR)%.o,$(SRCS))
 
-OBJS_DIR = objs/
+OBJS_DIR = objs/mandatory/
 
 BONUS_OBJS = $(patsubst %.c,$(BONUS_OBJS_DIR)%.o,$(BONUS_SRCS))
 
-BONUS_OBJS_DIR = b_objs/
+BONUS_OBJS_DIR = objs/bonus/
 
 # ***** Compiler and Archiver *****
 
