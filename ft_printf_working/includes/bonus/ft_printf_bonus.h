@@ -16,6 +16,17 @@
 # include <stdarg.h>
 # include <stddef.h>
 
+typedef struct s_flags {
+	char	minus_flag;			//	Set to 1 if minus flag is present.
+	char	zero_flag;			//	Set to 1 if 0 flag is present.
+	char	decimal_flag;		//	Set to 1 if decimal is present.
+	char	pound_flag;			//	Set to 1 if # flag is present.
+	char	space_flag;			//	Set to 1 if [ SPACE ] flag is present.
+	char	plus_flag;			//	Set to 1 if + flag is present.
+	char	fs;					//	Char that saves the format specifier.
+	size_t	padding;			//	Size of padding to add.
+}			t_flags;
+
 int		ft_printf(const char *s, ...);
 void	ft_putchar_fd(char c, int fd, int *print_count);
 void	ft_putstr_fd(char *s, int fd, int *print_count);
