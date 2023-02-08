@@ -74,7 +74,6 @@ int	subsequence_parser(const char *seq_start, va_list parg,
 	t_flags	*seq_info;
 	int		ssb_ret;
 	int		ssp_ret;
-	char	*buf;
 
 	seq_len = err_check(seq_start);
 	if (seq_len < 0)
@@ -84,24 +83,25 @@ int	subsequence_parser(const char *seq_start, va_list parg,
 		return (-1);
 	if (t_flags_fill(seq_info, seq_start, seq_len))
 		return (-1);
-	buf = (char *)ft_calloc(10 * sizeof(char), 1);
-	if (!buf)
+	seq_info->buf = (char *)ft_calloc(10 * sizeof(char), 1);
+	if (!seq_info->buf)
 		return (-1);
-	ssb_ret = subseq_build(seq_info, parg, &buf);
-	seq_info->buf = buf;
+	ssb_ret = subseq_build(seq_info, parg);
 	//t_flags_inspect(seq_info);
-	free(seq_info);
 	if (ssb_ret == -1)
 	{
-		free(buf);
+		free(seq_info->buf);
+		free(seq_info);
 		return (-1);
 	}
-	ssp_ret = subseq_print(buf, fd, print_count);
+	ssp_ret = subseq_print(seq_info, fd, print_count);
 	if (ssp_ret == -1)
 	{
-		free(buf);
+		free(seq_info->buf);
+		free(seq_info);
 		return (-1);
 	}
-	free(buf);
+	free(seq_info->buf);
+	free(seq_info);
 	return (seq_len);
 }

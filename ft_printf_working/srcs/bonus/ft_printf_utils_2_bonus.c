@@ -18,7 +18,7 @@
  *	file descriptor.
  */
 
-int	ft_dec_to_hex_upper_buf(unsigned int n, char **buf)
+int	ft_dec_to_hex_upper_buf(unsigned int n, t_flags *seq_info)
 {
 	long	nbl;
 	char	c;
@@ -26,14 +26,14 @@ int	ft_dec_to_hex_upper_buf(unsigned int n, char **buf)
 	nbl = (long)n;
 	if (nbl / 16 != 0)
 	{
-		if (ft_dec_to_hex_upper_buf(nbl / 16, buf))
+		if (ft_dec_to_hex_upper_buf(nbl / 16, seq_info))
 			return (-1);
 	}
 	if (nbl % 16 > 9)
 		c = ((nbl % 16) + 55);
 	else
 		c = ((nbl % 16) + '0');
-	if (write_to_buf(buf, &c, 1, 0) <= 0)
+	if (write_to_buf(seq_info, &c, 1, -1) <= 0)
 		return (-1);
 	return (0);
 }
@@ -44,7 +44,7 @@ int	ft_dec_to_hex_upper_buf(unsigned int n, char **buf)
  *	file descriptor.
  */
 
-int	ft_dec_to_hex_lower_buf(unsigned int n, char **buf)
+int	ft_dec_to_hex_lower_buf(unsigned int n, t_flags *seq_info)
 {
 	long	nbl;
 	char	c;
@@ -52,14 +52,14 @@ int	ft_dec_to_hex_lower_buf(unsigned int n, char **buf)
 	nbl = (long)n;
 	if (nbl / 16 != 0)
 	{
-		if (ft_dec_to_hex_lower_buf(nbl / 16, buf))
+		if (ft_dec_to_hex_lower_buf(nbl / 16, seq_info))
 			return (-1);
 	}
 	if (nbl % 16 > 9)
 		c = ((nbl % 16) + 87);
 	else
 		c = ((nbl % 16) + '0');
-	if (write_to_buf(buf, &c, 1, 0) <= 0)
+	if (write_to_buf(seq_info, &c, 1, -1) <= 0)
 		return (-1);
 	return (0);
 }
@@ -72,7 +72,7 @@ int	ft_dec_to_hex_lower_buf(unsigned int n, char **buf)
  *	Returns nothing.
  */
 
-int	ft_p_to_hex_buf(void *p, char **buf)
+int	ft_p_to_hex_buf(void *p, t_flags *seq_info)
 {
 	unsigned long long	nbl;
 	char				c;
@@ -80,14 +80,14 @@ int	ft_p_to_hex_buf(void *p, char **buf)
 	nbl = (unsigned long long)p;
 	if (nbl / 16 != 0)
 	{
-		if (ft_p_to_hex_buf((void *)(nbl / 16), buf))
+		if (ft_p_to_hex_buf((void *)(nbl / 16), seq_info))
 			return (-1);
 	}
 	if (nbl % 16 > 9)
 		c = ((nbl % 16) + 87);
 	else
 		c = ((nbl % 16) + '0');
-	if (write_to_buf(buf, &c, 1, 0) <= 0)
+	if (write_to_buf(seq_info, &c, 1, -1) <= 0)
 		return (-1);
 	return (0);
 }
@@ -97,7 +97,7 @@ int	ft_p_to_hex_buf(void *p, char **buf)
  *	Takes a number and prints as an unsigned integer to file descriptor.
  */
 
-int	ft_putunbr_buf(unsigned int n, char **buf)
+int	ft_putunbr_buf(unsigned int n, t_flags *seq_info)
 {
 	unsigned long	nbl;
 	char			c;
@@ -105,11 +105,11 @@ int	ft_putunbr_buf(unsigned int n, char **buf)
 	nbl = (unsigned long)n;
 	if (nbl / 10 != 0)
 	{
-		if (ft_putunbr_buf(nbl / 10, buf))
+		if (ft_putunbr_buf(nbl / 10, seq_info))
 			return (-1);
 	}
 	c = (nbl % 10 + '0');
-	if (write_to_buf(buf, &c, 1, 0) <= 0)
+	if (write_to_buf(seq_info, &c, 1, -1) <= 0)
 		return (-1);
 	return (0);
 }

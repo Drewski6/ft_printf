@@ -2339,3 +2339,588 @@ $4 = 9
 +define hook-next
 Reading symbols from ft_printf_small_playground...
 +exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=16967
+Remote debugging using | /usr/bin/vgdb --pid=16967
+relaying data between gdb and process 16967
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++break main
+Breakpoint 1 at 0x1091f1: file ft_printf_small_playground.c, line 6.
++n
+++refresh
+Single stepping until exit from function _start,
+which has no line number information.
+
+Breakpoint 1, main () at ft_printf_small_playground.c:6
++n
+++refresh
++n
+++refresh
++s
+ft_printf (s=0x10c030 "ft_printf,%10c") at srcs/bonus/ft_printf_bonus.c:110
++print s
+$1 = 0x10c030 "ft_printf,%10c"
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subsequence_parser (seq_start=0x10c03b "10c", parg=0x1ffefff970, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_3_bonus.c:72
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subseq_build (seq_info=0x4a9d480, parg=0x1ffefff970, buf=0x1ffefff918) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:101
++n
+++refresh
++n
+++refresh
++s
+format_switch_buf (c=99 'c', parg=0x1ffefff970, buf=0x1ffefff918) at srcs/bonus/ft_printf_bonus.c:55
++n
+++refresh
++s
+ft_putchar_buf (c=0 '\000', buf=0x1ffefff918) at srcs/bonus/ft_printf_utils_1_bonus.c:25
++n
+++refresh
++print c
+$2 = 0 '\000'
++n
+++refresh
++n
+++refresh
++print buf
+$3 = (char **) 0x1ffefff918
++print **buf
+$4 = 0 '\000'
++x/10bc buf
+0x1ffefff918:	48 '0'	-43 '\325'	-87 '\251'	4 '\004'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x1ffefff920:	-128 '\200'	-44 '\324'
++x/10bc **buf
+0x0:	Cannot access memory at address 0x0
++x/1bc **buf
+0x0:	Cannot access memory at address 0x0
++print **buf
+$5 = 0 '\000'
++x/10bc **buf
+0x0:	Cannot access memory at address 0x0
++print ch
+$6 = 0x4a9d580 ""
++x/2bc ch
+0x4a9d580:	0 '\000'	0 '\000'
++n
+++refresh
++print **buf
+$7 = 0 '\000'
++print **buf
+$8 = 0 '\000'
++x/10bc **buf
+0x0:	Cannot access memory at address 0x0
++print *buf
+$9 = 0x4a9d530 ""
++x/10bc *buf
+0x4a9d530:	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x4a9d538:	0 '\000'	0 '\000'
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+format_switch_buf (c=99 'c', parg=0x1ffefff970, buf=0x1ffefff918) at srcs/bonus/ft_printf_bonus.c:57
++print buf
+$10 = (char **) 0x1ffefff918
++print *buf
+$11 = 0x4a9d530 ""
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subseq_build (seq_info=0x4a9d480, parg=0x1ffefff970, buf=0x1ffefff918) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:103
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print buf_len
+$12 = 0
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=17948
+Remote debugging using | /usr/bin/vgdb --pid=17948
+relaying data between gdb and process 17948
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++break format_switch_buf 
+Breakpoint 1 at 0x109356: file srcs/bonus/ft_printf_bonus.c, line 55.
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++run
+The "remote" target does not support "run".  Try "help target" or "continue".
++c
+Continuing.
+
+Breakpoint 1, format_switch_buf (c=99 'c', parg=0x1ffefff970, buf=0x4a9d4a0, seq_info=0x4a9d480) at srcs/bonus/ft_printf_bonus.c:55
++n
+++refresh
++n
+++refresh
++n
+++refresh
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=18694
+Remote debugging using | /usr/bin/vgdb --pid=18694
+relaying data between gdb and process 18694
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++break subseq_print 
+Breakpoint 1 at 0x10a879: file srcs/bonus/ft_printf_utils_use_flags_bonus.c, line 133.
++c
+Continuing.
+
+Breakpoint 1, subseq_print (seq_info=0x4a9d480, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:133
++n
+++refresh
++c 
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a896 in subseq_print (seq_info=0x4a9d480, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:135
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+
+Breakpoint 1, subseq_print (seq_info=0x4a9dc20, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:133
++print seq_info
+$1 = (t_flags *) 0x4a9dc20
++call t_flags_inspect(seq_info)
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a1ce in t_flags_inspect (seq=0x4a9dc20) at srcs/bonus/ft_printf_utils_t_flags_bonus.c:25
+The program being debugged was signaled while in a function called from GDB.
+GDB remains in the frame where the signal was received.
+To change this behavior use "set unwindonsignal on".
+Evaluation of the expression containing the function
+(t_flags_inspect) will be abandoned.
+When the function is done executing, GDB will silently stop.
++n
+++refresh
++s
+ft_strlen (str=0x4a9ddd0 "20") at libft/srcs/mandatory/ft_strlen.c:26
++print str
+$2 = 0x4a9ddd0 "20"
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a896 in subseq_print (seq_info=0x4a9dc20, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:135
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=18838
+Remote debugging using | /usr/bin/vgdb --pid=18838
+relaying data between gdb and process 18838
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++break subseq_print 
+Breakpoint 1 at 0x10a879: file srcs/bonus/ft_printf_utils_use_flags_bonus.c, line 133.
++c
+Continuing.
+
+Breakpoint 1, subseq_print (seq_info=0x4a9d480, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:133
+warning: Source file is more recent than executable.
++s
++print len
+$1 = 10
++print seq_info->buf
+$2 = 0x4a9dbd0 "          "
++print seq_info->buf
+$3 = 0x4a9dbd0 "          "
++print seq_info->buf
+$4 = 0x4a9dbd0 "          "
++print seq_info->buf
+$5 = 0x4a9dbd0 "          "
++print seq_info->buf
+$6 = 0x4a9dbd0 "          "
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a896 in subseq_print (seq_info=0x4a9d480, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:135
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+
+Breakpoint 1, subseq_print (seq_info=0x4a9dc20, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:133
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a87d in subseq_print (seq_info=0x4a9dc20, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:133
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a896 in subseq_print (seq_info=0x4a9dc20, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:135
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=20853
+Remote debugging using | /usr/bin/vgdb --pid=20853
+relaying data between gdb and process 20853
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++break subsequence_parser 
+Breakpoint 1 at 0x10a06b: file srcs/bonus/ft_printf_utils_3_bonus.c, line 79.
++c
+Continuing.
+
+Breakpoint 1, subsequence_parser (seq_start=0x10c03b "10c", parg=0x1ffefff970, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_3_bonus.c:79
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print seq_info->buf
+$1 = 0x4a9d540 ""
++x
+Argument required (starting display address).
++s
+subseq_build (seq_info=0x4a9d480, parg=0x1ffefff970) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:101
++n
+++refresh
++print seq_info->fs
+$2 = 99 'c'
++call t_flags_inspect(seq_info)
++x/10bc seq_info->buf
+0x4a9d540:	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x4a9d548:	0 '\000'	0 '\000'
++n
+++refresh
++s
+format_switch_buf (seq_info=0x4a9d480, parg=0x1ffefff970) at srcs/bonus/ft_printf_bonus.c:55
++n
+++refresh
++s
+ft_putchar_buf (c=0 '\000', seq_info=0x4a9d480) at srcs/bonus/ft_printf_utils_1_bonus.c:25
++print c
+$3 = 0 '\000'
++x
+0x1ffefff87d:	0 '\000'	0 '\000'	0 '\000'	10 '\n'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x1ffefff885:	0 '\000'	0 '\000'
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a829 in subseq_print (seq_info=0x4a9d480, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:131
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a831 in subseq_print (seq_info=0x4a9d480, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:131
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a84e in subseq_print (seq_info=0x4a9d480, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:132
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+
+Breakpoint 1, subsequence_parser (seq_start=0x10c02d "d\n", parg=0x1ffefff970, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_3_bonus.c:79
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a829 in subseq_print (seq_info=0x4a9dc20, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:131
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a831 in subseq_print (seq_info=0x4a9dc20, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:131
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a84e in subseq_print (seq_info=0x4a9dc20, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:132
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=22215
+Remote debugging using | /usr/bin/vgdb --pid=22215
+relaying data between gdb and process 22215
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++break subsequence_parser 
+Breakpoint 1 at 0x10a097: file srcs/bonus/ft_printf_utils_3_bonus.c, line 79.
++c
+Continuing.
+
+Breakpoint 1, subsequence_parser (seq_start=0x10c03b "10c", parg=0x1ffefff970, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_3_bonus.c:79
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subseq_build (seq_info=0x4a9d480, parg=0x1ffefff970) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:101
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subsequence_parser (seq_start=0x10c03b "10c", parg=0x1ffefff970, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_3_bonus.c:92
++n
+++refresh
++n
+++refresh
+Quit
+Quit
+Quit
+Quit
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a85b in subseq_print (seq_info=0x4a9d480, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:131
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a863 in subseq_print (seq_info=0x4a9d480, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:131
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a880 in subseq_print (seq_info=0x4a9d480, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:132
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+
+Breakpoint 1, subsequence_parser (seq_start=0x10c02d "d\n", parg=0x1ffefff970, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_3_bonus.c:79
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a85b in subseq_print (seq_info=0x4a9dc20, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:131
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a863 in subseq_print (seq_info=0x4a9dc20, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:131
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a880 in subseq_print (seq_info=0x4a9dc20, fd=1, print_count=0x1ffefff95c) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:132
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++exit

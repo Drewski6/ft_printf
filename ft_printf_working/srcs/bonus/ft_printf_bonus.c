@@ -19,21 +19,21 @@
  *	If not NULL, prints the address.
  */
 
-int	ft_pointer_handle(va_list parg, char **buf)
+int	ft_pointer_handle(t_flags *seq_info, va_list parg)
 {
 	void	*ptr;
 
 	ptr = va_arg(parg, void *);
 	if (!ptr)
 	{
-		if (write_to_buf(buf, "(nil)", 5, 0) <= 0)
+		if (write_to_buf(seq_info, "(nil)", 5, -1) <= 0)
 			return (-1);
 	}
 	else
 	{
-		if (write_to_buf(buf, "0x", 2, 0) <= 0)
+		if (write_to_buf(seq_info, "0x", 2, -1) <= 0)
 			return (-1);
-		ft_p_to_hex_buf(ptr, buf);
+		ft_p_to_hex_buf(ptr, seq_info);
 	}
 	return (0);
 }
@@ -50,46 +50,46 @@ int	ft_pointer_handle(va_list parg, char **buf)
  *	Returns integer 1 on success and -1 on error (format specifier not found).
  */
 
-int	format_switch_buf(char c, va_list parg, char **buf)
+int	format_switch_buf(t_flags *seq_info, va_list parg)
 {
-	if (c == 'c')
+	if (seq_info->fs == 'c')
 	{
-		if (ft_putchar_buf(va_arg(parg, int), buf))
+		if (ft_putchar_buf(va_arg(parg, int), seq_info))
 			return (-1);
 	}
-	else if (c == 's')
+	else if (seq_info->fs == 's')
 	{
-		if (ft_putstr_buf(va_arg(parg, char *), buf))
+		if (ft_putstr_buf(va_arg(parg, char *), seq_info))
 			return (-1);
 	}
-	else if (c == 'p')
+	else if (seq_info->fs == 'p')
 	{
-		if (ft_pointer_handle(parg, buf))
+		if (ft_pointer_handle(seq_info, parg))
 			return (-1);
 	}
-	else if (c == 'd')
+	else if (seq_info->fs == 'd')
 	{
-		if (ft_putnbr_buf(va_arg(parg, int), buf))
+		if (ft_putnbr_buf(va_arg(parg, int), seq_info))
 			return (-1);
 	}
-	else if (c == 'i')
+	else if (seq_info->fs == 'i')
 	{
-		if (ft_putnbr_buf(va_arg(parg, int), buf))
+		if (ft_putnbr_buf(va_arg(parg, int), seq_info))
 			return (-1);
 	}
-	else if (c == 'u')
+	else if (seq_info->fs == 'u')
 	{
-		if (ft_putunbr_buf((unsigned int)va_arg(parg, int), buf))
+		if (ft_putunbr_buf((unsigned int)va_arg(parg, int), seq_info))
 			return (-1);
 	}
-	else if (c == 'x')
+	else if (seq_info->fs == 'x')
 	{
-		if (ft_dec_to_hex_lower_buf(va_arg(parg, int), buf))
+		if (ft_dec_to_hex_lower_buf(va_arg(parg, int), seq_info))
 			return (-1);
 	}
-	else if (c == 'X')
+	else if (seq_info->fs == 'X')
 	{
-		if (ft_dec_to_hex_upper_buf(va_arg(parg, int), buf))
+		if (ft_dec_to_hex_upper_buf(va_arg(parg, int), seq_info))
 			return (-1);
 	}
 	else

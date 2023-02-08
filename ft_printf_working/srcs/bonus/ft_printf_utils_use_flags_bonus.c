@@ -43,16 +43,16 @@ int	subseq_decimal()
  *
  */
 
-int	subseq_pound(t_flags *seq_info, char **buf)
+int	subseq_pound(t_flags *seq_info)
 {
 	if (seq_info->fs == 'x')
 	{
-		if (write_to_buf(buf, "0x", 2, 1) <= 0)
+		if (write_to_buf(seq_info, "0x", 2, 0) <= 0)
 			return (-1);
 	}
 	else if (seq_info->fs == 'X')
 	{
-		if (write_to_buf(buf, "0X", 2, 1) <= 0)
+		if (write_to_buf(seq_info, "0X", 2, 0) <= 0)
 			return (-1);
 	}
 	else if (seq_info->fs == 'd')
@@ -93,27 +93,24 @@ int	subseq_plus()
  *	Looks through the t_flags struct and starts printing subsequence.
  */
 
-int	subseq_build(t_flags *seq_info, va_list parg, char **buf)
+int	subseq_build(t_flags *seq_info, va_list parg)
 {
-	int	buf_len;
 	int	padding;
 
-	buf_len = 0;
 	padding = 0;
-	if (format_switch_buf(seq_info->fs, parg, buf))
+	if (format_switch_buf(seq_info, parg))
 		return (-1);
 	if (seq_info->pound_flag == 1)
 	{
-		if (subseq_pound(seq_info, buf))
+		if (subseq_pound(seq_info))
 			return (-1);
 	}
 	if (seq_info->width > 0)
 	{
-		buf_len = ft_strlen(*buf);
-		padding = seq_info->width - buf_len;
+		padding = seq_info->width - seq_info->buf_len;
 		while (padding > 0)
 		{
-			if (write_to_buf(buf, " ", 1, !seq_info->minus_flag) <= 0)
+			if (write_to_buf(seq_info, " ", 1, seq_info->minus_flag) <= 0)
 				return (-1);
 			padding--;
 		}
@@ -126,13 +123,10 @@ int	subseq_build(t_flags *seq_info, va_list parg, char **buf)
  *	Prints out the buffer.
  */
 
-int	subseq_print(char *buf, int fd, int *print_count)
+int	subseq_print(t_flags *seq_info, int fd, int *print_count)
 {
-	int len;
-
-	len = ft_strlen(buf);
-	write(fd, buf, len);
-	*print_count += len;
+	write(fd, seq_info->buf, seq_info->buf_len);
+	*print_count += seq_info->buf_len;
 	return (0);
 }
 
@@ -143,25 +137,42 @@ int	subseq_print(char *buf, int fd, int *print_count)
  *	Basically str_join with len
  */
 
-int	write_to_buf(char **buf, char *str, size_t len, char inv_flag)
+int	write_to_buf(t_flags *seq_info, char *str, size_t len, int wi)
 {
 	char	*new_buf;
+	char	*new_buf_beg;
+	char	*new_buf_end;
 	char	*new_str;
 	
 	if (*str == 0)
-		return (0);
+	{
+		*(seq_info->buf) = 0;
+		seq_info->buf_len++;
+		return (1);
+	}
 	new_str = ft_strdup(str);
 	if (!new_str)
 		return (-1);
 	new_str[len] = 0;
-	if (inv_flag == 0)
-		new_buf = ft_strjoin(*buf, new_str);
+	if (wi < 0)
+		new_buf = ft_strjoin(seq_info->buf, new_str);
 	else
-		new_buf = ft_strjoin(new_str, *buf);
+	{
+		new_buf_beg = ft_substr(seq_info->buf, 0, wi);
+		if (!new_buf_beg)
+			return (-1);
+		new_buf_end = ft_strjoin(new_str, &(seq_info->buf[wi]));
+		if (!new_buf_end)
+			return (-1);
+		new_buf = ft_strjoin(new_buf_beg, new_buf_end);
+		free(new_buf_beg);
+		free(new_buf_end);
+	}
 	if (new_buf == 0)
 		return (-1);
 	free(new_str);
-	free(*buf);
-	*buf = new_buf;
-	return (ft_strlen(*buf));
+	free(seq_info->buf);
+	seq_info->buf = new_buf;
+	seq_info->buf_len += len;
+	return (len);
 }

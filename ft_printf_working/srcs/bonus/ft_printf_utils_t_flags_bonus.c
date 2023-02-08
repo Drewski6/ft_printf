@@ -31,7 +31,8 @@ void	t_flags_inspect(t_flags *seq)
 	printf("fs:\t\t%c\n", seq->fs);
 	printf("width:\t\t%ld\n", seq->width);
 	printf("precision:\t%ld\n", seq->precision);
-	printf("buf:\t\t%s\n", seq->buf);
+	printf("buf_len:\t%ld\n", seq->buf_len);
+	printf("buf:\t\t[%s]\n", seq->buf);
 	printf("\n");
 	return ;
 }
@@ -58,6 +59,7 @@ t_flags	*t_flags_init(void)
 	new_t_flags->fs = 0;
 	new_t_flags->width = 0;
 	new_t_flags->precision = 0;
+	new_t_flags->buf_len = 0;
 	new_t_flags->buf = 0;
 	return (new_t_flags);
 }
@@ -137,7 +139,7 @@ int	t_flags_w_p(t_flags *seq_info, const char *seq_start, int seq_len)
 int	t_flags_fill(t_flags *seq_info, const char *seq_start, int seq_len)
 {
 	if (ft_strnstr(seq_start, "-", seq_len))
-		seq_info->minus_flag = 1;
+		seq_info->minus_flag = -1;
 	if (ft_strnstr(seq_start, ".", seq_len))
 		seq_info->decimal_flag = 1;
 	if (ft_strnstr(seq_start, "#", seq_len))

@@ -18,7 +18,7 @@
  *  Returns nothing.
  */
 
-int	ft_putchar_buf(char c, char **buf)
+int	ft_putchar_buf(char c, t_flags *seq_info)
 {
 	char	*ch;
 
@@ -26,9 +26,7 @@ int	ft_putchar_buf(char c, char **buf)
 	if (!ch)
 		return (-1);
 	ch[0] = c;
-	if (ch[0] == 0)
-		**buf = 0;
-	else if (write_to_buf(buf, ch, 1, 0) <= 0)
+	if (write_to_buf(seq_info, ch, 1, 0) <= 0)
 	{
 		free(ch);
 		return (-1);
@@ -43,19 +41,19 @@ int	ft_putchar_buf(char c, char **buf)
  *  Returns nothing.
  */
 
-int	ft_putstr_buf(char *s, char **buf)
+int	ft_putstr_buf(char *s, t_flags *seq_info)
 {
 	size_t	str_len;
 
 	str_len = 0;
 	if (s == 0)
 	{
-		if (write_to_buf(buf, "(null)", 6, 0) <= 0)
+		if (write_to_buf(seq_info, "(null)", 6, -1) <= 0)
 			return (-1);
 		return (0);
 	}
 	str_len = ft_strlen(s);
-	if (write_to_buf(buf, s, str_len, 0) <= 0)
+	if (write_to_buf(seq_info, s, str_len, -1) <= 0)
 		return (-1);
 	return (0);
 }
@@ -66,7 +64,7 @@ int	ft_putstr_buf(char *s, char **buf)
  *  Returns nothing.
  */
 
-int	ft_putnbr_buf(int n, char **buf)
+int	ft_putnbr_buf(int n, t_flags *seq_info)
 {
 	long	nbl;
 	char	c;
@@ -74,19 +72,19 @@ int	ft_putnbr_buf(int n, char **buf)
 	nbl = (long)n;
 	if (nbl < 0)
 	{
-		if (write_to_buf(buf, "-", 1, 0) <= 0)
+		if (write_to_buf(seq_info, "-", 1, -1) <= 0)
 			return (-1);
 	}
 	if (nbl / 10 != 0)
 	{
 		if (nbl < 0)
 		{
-			if (ft_putnbr_buf((nbl / 10) * -1, buf))
+			if (ft_putnbr_buf((nbl / 10) * -1, seq_info))
 				return (-1);
 		}
 		else
 		{
-			if (ft_putnbr_buf(nbl / 10, buf))
+			if (ft_putnbr_buf(nbl / 10, seq_info))
 				return (-1);
 		}
 	}
@@ -94,7 +92,7 @@ int	ft_putnbr_buf(int n, char **buf)
 		c = (((nbl % 10) * -1) + '0');
 	else
 		c = (nbl % 10 + '0');
-	if (write_to_buf(buf, &c, 1, 0) <= 0)
+	if (write_to_buf(seq_info, &c, 1, -1) <= 0)
 		return (-1);
 	return (0);
 }
