@@ -89,9 +89,7 @@ int	subsequence_parser(const char *seq_start, va_list parg,
 		return (-1);
 	ssb_ret = subseq_build(seq_info, parg, &buf);
 	seq_info->buf = buf;
-	#ifdef DEBUG
-		t_flags_inspect(seq_info);
-	#endif
+	//t_flags_inspect(seq_info);
 	free(seq_info);
 	if (ssb_ret == -1)
 	{

@@ -2284,3 +2284,58 @@ format_switch_buf (c=99 'c', parg=0x1ffefff960, buf=0x1ffefff908) at srcs/bonus/
 ++refresh
 subseq_build (seq_info=0x4a9d040, parg=0x1ffefff960, buf=0x1ffefff908) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:124
 +exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=11490
+Remote debugging using | /usr/bin/vgdb --pid=11490
+relaying data between gdb and process 11490
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++break main
+Breakpoint 1 at 0x1091f1: file ft_printf_small_playground.c, line 6.
++c
+Continuing.
+
+Breakpoint 1, main () at ft_printf_small_playground.c:6
++s
+ft_printf (s=0x10b004 "testing:%10c\n") at srcs/bonus/ft_printf_bonus.c:110
++break subseq_build 
+Breakpoint 2 at 0x10a6d7: file srcs/bonus/ft_printf_utils_use_flags_bonus.c, line 118.
++c
+Continuing.
+
+Breakpoint 2, subseq_build (seq_info=0x4a9d040, parg=0x1ffefff960, buf=0x1ffefff908) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:118
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print *buf
+$1 = 0x4a9d1e0 "J"
++n
+++refresh
++print seq_info->width
+$2 = 10
++n
+++refresh
++print buf_len
+$3 = 1
++n
+++refresh
++print padding
+$4 = 9
++n
+++refresh
++n
+++refresh
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++exit

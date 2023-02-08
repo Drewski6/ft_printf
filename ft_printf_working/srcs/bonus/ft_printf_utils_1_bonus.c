@@ -26,7 +26,9 @@ int	ft_putchar_buf(char c, char **buf)
 	if (!ch)
 		return (-1);
 	ch[0] = c;
-	if (write_to_buf(buf, ch, 1, 0) <= 0)
+	if (ch[0] == 0)
+		**buf = 0;
+	else if (write_to_buf(buf, ch, 1, 0) <= 0)
 	{
 		free(ch);
 		return (-1);

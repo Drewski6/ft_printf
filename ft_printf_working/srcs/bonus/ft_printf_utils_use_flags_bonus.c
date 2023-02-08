@@ -12,23 +12,6 @@
 
 #include "ft_printf_bonus.h"
 
-/*	*** subseq_minus () ***
- *
- *
- */
-
-/*
-int	subseq_minus(t_flags *seq_info, char *buf, int *print_count)
-{
-	if (seq_info->minus_flag == 1)
-	{
-
-	}
-
-	return (0);
-}
-*/
-
 /*	*** subseq_zero () ***
  *
  *
@@ -112,12 +95,28 @@ int	subseq_plus()
 
 int	subseq_build(t_flags *seq_info, va_list parg, char **buf)
 {
+	int	buf_len;
+	int	padding;
+
+	buf_len = 0;
+	padding = 0;
 	if (format_switch_buf(seq_info->fs, parg, buf))
 		return (-1);
 	if (seq_info->pound_flag == 1)
 	{
 		if (subseq_pound(seq_info, buf))
 			return (-1);
+	}
+	if (seq_info->width > 0)
+	{
+		buf_len = ft_strlen(*buf);
+		padding = seq_info->width - buf_len;
+		while (padding > 0)
+		{
+			if (write_to_buf(buf, " ", 1, !seq_info->minus_flag) <= 0)
+				return (-1);
+			padding--;
+		}
 	}
 	return (0);
 }
@@ -149,6 +148,8 @@ int	write_to_buf(char **buf, char *str, size_t len, char inv_flag)
 	char	*new_buf;
 	char	*new_str;
 	
+	if (*str == 0)
+		return (0);
 	new_str = ft_strdup(str);
 	if (!new_str)
 		return (-1);
