@@ -19,25 +19,26 @@
  *	If not NULL, prints the address.
  */
 
-static void	ft_pointer_handle(va_list parg, int fd, int *print_count)
+int	ft_pointer_handle(va_list parg, char **buf)
 {
 	void	*ptr;
 
 	ptr = va_arg(parg, void *);
 	if (!ptr)
 	{
-		write(fd, "(nil)", 5);
-		*print_count += 5;
+		if (write_to_buf(buf, "(nil)", 5, 0) <= 0)
+			return (-1);
 	}
 	else
 	{
-		write(fd, "0x", 2);
-		*print_count += 2;
-		ft_p_to_hex_fd(ptr, fd, print_count);
+		if (write_to_buf(buf, "0x", 2, 0) <= 0)
+			return (-1);
+		ft_p_to_hex_buf(ptr, buf);
 	}
+	return (0);
 }
 
-/*  *** format_switch (format switch file descriptor) ***
+/*  *** format_switch_buf (format switch file descriptor) ***
  *
  *  Acts as a switch statement that determines which function to call
  *  Based on the format specifier used in ft_printf.
@@ -46,30 +47,54 @@ static void	ft_pointer_handle(va_list parg, int fd, int *print_count)
  *	Runs va_arg macro to get the next item in va_list. At this point we know
  *	the type thanks to the switch statement.
  *	Also takes a file descriptor.
- *	Returns integer 1 on success.
+ *	Returns integer 1 on success and -1 on error (format specifier not found).
  */
 
-static int	format_switch_fd(char c, va_list parg, int fd, int *print_count)
+int	format_switch_buf(char c, va_list parg, char **buf)
 {
 	if (c == 'c')
-		ft_putchar_fd(va_arg(parg, int), fd, print_count);
+	{
+		if (ft_putchar_buf(va_arg(parg, int), buf))
+			return (-1);
+	}
 	else if (c == 's')
-		ft_putstr_fd(va_arg(parg, char *), fd, print_count);
+	{
+		if (ft_putstr_buf(va_arg(parg, char *), buf))
+			return (-1);
+	}
 	else if (c == 'p')
-		ft_pointer_handle(parg, fd, print_count);
+	{
+		if (ft_pointer_handle(parg, buf))
+			return (-1);
+	}
 	else if (c == 'd')
-		ft_putnbr_fd(va_arg(parg, int), fd, print_count);
+	{
+		if (ft_putnbr_buf(va_arg(parg, int), buf))
+			return (-1);
+	}
 	else if (c == 'i')
-		ft_putnbr_fd(va_arg(parg, int), fd, print_count);
+	{
+		if (ft_putnbr_buf(va_arg(parg, int), buf))
+			return (-1);
+	}
 	else if (c == 'u')
-		ft_putunbr_fd((unsigned int)va_arg(parg, int), fd, print_count);
+	{
+		if (ft_putunbr_buf((unsigned int)va_arg(parg, int), buf))
+			return (-1);
+	}
 	else if (c == 'x')
-		ft_dec_to_hex_lower_fd(va_arg(parg, int), fd, print_count);
+	{
+		if (ft_dec_to_hex_lower_buf(va_arg(parg, int), buf))
+			return (-1);
+	}
 	else if (c == 'X')
-		ft_dec_to_hex_upper_fd(va_arg(parg, int), fd, print_count);
-	else if (c == '%')
-		ft_putpercent_fd(fd, print_count);
-	return (1);
+	{
+		if (ft_dec_to_hex_upper_buf(va_arg(parg, int), buf))
+			return (-1);
+	}
+	else
+		return (-1);
+	return (0);
 }
 
 /*  *** ft_printf (42 print format) ***
@@ -87,6 +112,7 @@ int	ft_printf(const char *s, ...)
 	va_list	parg;
 	int		fd;
 	int		print_count;
+	int		seq_len;
 
 	i = 0;
 	fd = 1;
@@ -96,8 +122,20 @@ int	ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 		{
-			format_switch_fd(s[i + 1], parg, fd, &print_count);
-			i++;
+			if (s[i + 1] == '%')
+			{
+				write(fd, "%", 1);
+				print_count++;
+				i += 2;
+				continue ;
+			}
+			seq_len = subsequence_parser(&s[i + 1], parg, fd, &print_count);
+			if (seq_len < 0)
+			{
+				va_end(parg);
+				return (-1);
+			}
+			i += seq_len;
 		}
 		else
 		{

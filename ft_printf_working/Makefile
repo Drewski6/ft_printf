@@ -22,9 +22,49 @@ SRCS_DIR = srcs/mandatory/
 
 BONUS_SRCS = ft_printf_bonus.c \
     ft_printf_utils_1_bonus.c \
-    ft_printf_utils_2_bonus.c
+    ft_printf_utils_2_bonus.c \
+    ft_printf_utils_3_bonus.c \
+    ft_printf_utils_t_flags_bonus.c \
+	ft_printf_utils_use_flags_bonus.c
 
 BONUS_SRCS_DIR = srcs/bonus/
+
+LIBFT_SRCS = ft_isalpha.c \
+	ft_isdigit.c \
+	ft_isalnum.c \
+	ft_isascii.c \
+	ft_isprint.c \
+	ft_strlen.c \
+	ft_memset.c \
+	ft_bzero.c \
+	ft_memcpy.c \
+	ft_memmove.c \
+	ft_strlcpy.c \
+	ft_strlcat.c \
+	ft_toupper.c \
+	ft_tolower.c \
+	ft_strchr.c \
+	ft_strrchr.c \
+	ft_strncmp.c \
+	ft_memchr.c \
+	ft_memcmp.c \
+	ft_strnstr.c \
+	ft_atoi.c \
+	ft_calloc.c \
+	ft_strdup.c \
+	ft_substr.c \
+	ft_strjoin.c \
+	ft_strtrim.c \
+	ft_split.c \
+	ft_itoa.c \
+	ft_strmapi.c \
+	ft_striteri.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putendl_fd.c \
+	ft_putnbr_fd.c \
+
+LIBFT_SRCS_DIR = libft/srcs/mandatory/
 
 # ***** Includes *****
 
@@ -36,6 +76,10 @@ BONUS_INCS = ft_printf_bonus.h
 
 BONUS_INCS_DIR = includes/bonus/
 
+LIBFT_INCS = libft.h
+
+LIBFT_INCS_DIR = libft/includes/
+
 # ***** Objects *****
 
 OBJS = $(patsubst %.c,$(OBJS_DIR)%.o,$(SRCS))
@@ -46,9 +90,13 @@ BONUS_OBJS = $(patsubst %.c,$(BONUS_OBJS_DIR)%.o,$(BONUS_SRCS))
 
 BONUS_OBJS_DIR = objs/bonus/
 
+LIBFT_OBJS = $(patsubst %.c,$(LIBFT_OBJS_DIR)%.o,$(LIBFT_SRCS))
+
+LIBFT_OBJS_DIR = libft/objs/mandatory/
+
 # ***** Compiler and Archiver *****
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 CC = cc
 
@@ -61,8 +109,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(SLIB) $(NAME) -o $(OBJS)
 
-bonus: $(BONUS_OBJS)
-	$(SLIB) $(NAME) -o $(BONUS_OBJS)
+bonus: $(BONUS_OBJS) $(LIBFT_OBJS)
+	$(SLIB) $(NAME) -o $(BONUS_OBJS) $(LIBFT_OBJS)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 	$(CC) $(CFLAGS) -c -I$(INCS_DIR) $< -o $@
@@ -70,10 +118,15 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 $(BONUS_OBJS_DIR)%.o: $(BONUS_SRCS_DIR)%.c
 	$(CC) $(CFLAGS) -c -I$(BONUS_INCS_DIR) $< -o $@
 
+$(LIBFT_OBJS_DIR)%.o: $(LIBFT_SRCS_DIR)%.c
+	$(CC) $(CFLAGS) -c -I$(LIBFT_INCS_DIR) $< -o $@
+
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	make clean -C libft
+	rm -f $(OBJS) $(BONUS_OBJS) $(LIBFT_OBJS)
 
 fclean:	clean
+	make fclean -C libft
 	rm -f $(NAME)
 
 re:	fclean all

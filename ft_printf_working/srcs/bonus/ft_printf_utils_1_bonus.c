@@ -12,65 +12,59 @@
 
 #include "ft_printf_bonus.h"
 
-/*  *** ft_putchar_fd (42 put character file descriptor) ***
+/*  *** ft_putchar_buf (42 put character to buffer) ***
  *
  *  Outputs the character 'c' to file descriptor.
  *  Returns nothing.
  */
 
-void	ft_putchar_fd(char c, int fd, int *print_count)
+int	ft_putchar_buf(char c, char **buf)
 {
-	write(fd, &c, 1);
-	(*print_count)++;
+	char	*ch;
+
+	ch = (char *)ft_calloc(2, sizeof(char));
+	if (!ch)
+		return (-1);
+	ch[0] = c;
+	if (write_to_buf(buf, ch, 1, 0) <= 0)
+	{
+		free(ch);
+		return (-1);
+	}
+	free(ch);
+	return (0);
 }
 
-/*  *** ft_strlen (42 string length) ***
- *	*** from libft ***
- *
- *  Takes a character pointer.
- *  Returns size_t number of 8 bit memory spaces between input pointer and
- *  the first null terminator.
- */
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str && str[i])
-		i++;
-	return (i);
-}
-
-/*  *** ft_putstr_fd (42 put string file descriptor) ***
+/*  *** ft_putstr_buf (42 put string to buffer) ***
  *
  *  Outputs the string 's' to the given file descriptor.
  *  Returns nothing.
  */
 
-void	ft_putstr_fd(char *s, int fd, int *print_count)
+int	ft_putstr_buf(char *s, char **buf)
 {
 	size_t	str_len;
 
 	str_len = 0;
 	if (s == 0)
 	{
-		(*print_count) += 6;
-		write(fd, "(null)", 6);
-		return ;
+		if (write_to_buf(buf, "(null)", 6, 0) <= 0)
+			return (-1);
+		return (0);
 	}
 	str_len = ft_strlen(s);
-	write(fd, s, str_len);
-	(*print_count) += str_len;
+	if (write_to_buf(buf, s, str_len, 0) <= 0)
+		return (-1);
+	return (0);
 }
 
-/*  *** ft_putnbr_fd (42 put number file descriptor) ***
+/*  *** ft_putnbr_fd_p (42 put number file descriptor) ***
  *
  *  Outputs the integer 'n' to the given file descriptor.
  *  Returns nothing.
  */
 
-void	ft_putnbr_fd(int n, int fd, int *print_count)
+int	ft_putnbr_buf(int n, char **buf)
 {
 	long	nbl;
 	char	c;
@@ -78,33 +72,27 @@ void	ft_putnbr_fd(int n, int fd, int *print_count)
 	nbl = (long)n;
 	if (nbl < 0)
 	{
-		write(fd, "-", 1);
-		(*print_count)++;
+		if (write_to_buf(buf, "-", 1, 0) <= 0)
+			return (-1);
 	}
 	if (nbl / 10 != 0)
 	{
 		if (nbl < 0)
-			ft_putnbr_fd((nbl / 10) * -1, fd, print_count);
+		{
+			if (ft_putnbr_buf((nbl / 10) * -1, buf))
+				return (-1);
+		}
 		else
-			ft_putnbr_fd(nbl / 10, fd, print_count);
+		{
+			if (ft_putnbr_buf(nbl / 10, buf))
+				return (-1);
+		}
 	}
 	if (nbl < 0)
 		c = (((nbl % 10) * -1) + '0');
 	else
 		c = (nbl % 10 + '0');
-	write(fd, &c, 1);
-	(*print_count)++;
-	return ;
-}
-
-/*	*** ft_putpercent_fd (42 put percent file descriptor)
- *
- *	Writes a percent sign to a given file descriptor 'fd'.
- *	Returns nothing.
- */
-
-void	ft_putpercent_fd(int fd, int *print_count)
-{
-	write(fd, "%", 1);
-	(*print_count)++;
+	if (write_to_buf(buf, &c, 1, 0) <= 0)
+		return (-1);
+	return (0);
 }

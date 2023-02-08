@@ -3,36 +3,45 @@
 #include <stdio.h>
 #include <stddef.h>
 
+// c, s, p, d, i, u, x, X, %
+
 int main (void)
 {
-	char	*sample;
-	char	*sample_n;
+	char 	*input = "d:[%%]\n";
 
-	sample = (char *)malloc(sizeof(char) * 12);
-	sample_n = NULL;
+	ft_printf(",%d\n", ft_printf("ft_printf"));
+	ft_printf("c: %c\n", 'W');
+	ft_printf("s: %s\n", "Hey how's it going?");
+	ft_printf("p: %p\n", input);
+	ft_printf("pos d: %d\n", 1234);
+	ft_printf("neg d: %d\n", -1234);
+	ft_printf("pos i: %i\n", 1234);
+	ft_printf("neg i: %i\n", -1234);
+	ft_printf("pos u: %u\n", 1234);
+	ft_printf("neg u: %u\n", -1234);
+	ft_printf(",%d\n", ft_printf("pos x: %x", 1234));
+	ft_printf("neg x: %x\n", -1234);
+	ft_printf("pos x: %#x\n", 1234);
+	ft_printf("neg x: %#x\n", -1234);
+	ft_printf("pos X: %X\n", 1234);
+	ft_printf("neg X: %X\n", -1234);
+	ft_printf("percent%%end\n");
 
-	// Working
-	ft_printf("*** Working ***\n");
-	ft_printf(" %d\n", ft_printf("%c", '0'));
-	ft_printf(" %d\n", ft_printf("Testing character: %c", '0'));
-	ft_printf(" %d\n", ft_printf("Testing string: %s", "Here is a test string."));
-	ft_printf(" %d\n", ft_printf("Testing decimal: %d", 12345));
-	ft_printf(" %d\n", ft_printf("Testing integer: %i", 67890));
-	ft_printf(" %d\n", ft_printf("Testing percent: %%"));
-	ft_printf(" %d\n", ft_printf("Testing hexidecimal lower: %x", 1234));
-	ft_printf(" %d\n", ft_printf("Testing hexidecimal lower: %x", -1234));
-	ft_printf(" %d\n", ft_printf("Testing hexidecimal upper: %X", 1234));
-	ft_printf(" %d\n", ft_printf("Testing unsigned decimal: %u", -12345));
-	ft_printf(" %d\n", ft_printf("Testing ft_pointer: %p", (void *)sample));
-	//	printf(" %d\n", printf("Testing    pointer: %p", (void *)sample));
-	ft_printf(" %d\n", ft_printf("Testing ft_pointer: %p", (void *)sample_n));
-	//	printf(" %d\n", printf("Testing    pointer: %p", (void *)sample_n));
-	ft_printf(" %d\n", ft_printf(" NULL %s NULL ", NULL));
-	//printf(" %d\n", printf(" NULL %s NULL ", NULL));
+	printf("\nprintf\n");
+	printf("c: %c\n", 'W');
+	printf("s: %s\n", "Hey how's it going?");
+	printf("p: %p\n", input);
+	printf("pos d: %d\n", 1234);
+	printf("neg d: %d\n", -1234);
+	printf("pos i: %i\n", 1234);
+	printf("neg i: %i\n", -1234);
+	printf("pos u: %u\n", 1234);
+	printf("neg u: %u\n", -1234);
+	printf("pos x: %x\n", 1234);
+	printf("neg x: %x\n", -1234);
+	printf("pos X: %X\n", 1234);
+	printf("neg X: %X\n", -1234);
+	printf("percent%%end");
 
-	// Issues
-	ft_printf("\n*** Issues ***\n");
-
-	free(sample);
 	return (0);
 }

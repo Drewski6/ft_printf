@@ -33,3 +33,2254 @@ Temporary breakpoint 1, main () at test_ft_printf.c:8
 +print sample
 $1 = 0x5555555592a0 ""
 +exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break subsequence_parser 
+Breakpoint 1 at 0x1ec6
++c
+The program is not being run.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[Inferior 1 (process 17600) exited normally]
++info break
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000555555555ec6 <subsequence_parser+8>
++start
+Temporary breakpoint 2 at 0x5555555551d5: file test_ft_printf_bonus.c, line 11.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 2, main () at test_ft_printf_bonus.c:11
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+__libc_start_call_main (main=main@entry=0x5555555551c9 <main>, argc=argc@entry=1, argv=argv@entry=0x7fffffffdc98) at ../sysdeps/nptl/libc_start_call_main.h:74
++n
+++refresh
+[Inferior 1 (process 17646) exited normally]
++n
+++refresh
+The program is not being run.
++n
+++refresh
+The program is not being run.
++n
+++refresh
+The program is not being run.
++clear
+No breakpoint at this line.
++info break
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000555555555ec6 <subsequence_parser+8>
++start
+Temporary breakpoint 3 at 0x5555555551d5: file test_ft_printf_bonus.c, line 11.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 3, main () at test_ft_printf_bonus.c:11
++n
+++refresh
++n
+++refresh
++s
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break subsequence_parser 
+Breakpoint 1 at 0x1ec6
++c
+The program is not being run.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[Inferior 1 (process 17888) exited normally]
++start
+Temporary breakpoint 2 at 0x5555555551d5: file test_ft_printf_bonus.c, line 11.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 2, main () at test_ft_printf_bonus.c:11
++n
+++refresh
++n
+++refresh
++s
++n
+++refresh
++n
+++refresh
++n
+++refresh
+__libc_start_call_main (main=main@entry=0x5555555551c9 <main>, argc=argc@entry=1, argv=argv@entry=0x7fffffffdc98) at ../sysdeps/nptl/libc_start_call_main.h:74
++clera
+Undefined command: "clera".  Try "help".
++clear
+No breakpoint at this line.
++ls
+Undefined command: "ls".  Try "help".
++clear
+No breakpoint at this line.
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break subsequence_parser 
+Breakpoint 1 at 0x1ece: file srcs/bonus/ft_printf_utils_3_bonus.c, line 66.
++c
+The program is not being run.
++start
+Temporary breakpoint 2 at 0x11d5: file test_ft_printf_bonus.c, line 11.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 2, main () at test_ft_printf_bonus.c:11
++n
+++refresh
++n
+++refresh
++s
+ft_printf (s=0x555555556004 "hello there\n") at srcs/bonus/ft_printf_bonus.c:85
++c
+Continuing.
+[Inferior 1 (process 18321) exited normally]
++n
+++refresh
+The program is not being run.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[Inferior 1 (process 18364) exited normally]
++clear
+No breakpoint at this line.
++ls
+Undefined command: "ls".  Try "help".
++start
+Temporary breakpoint 3 at 0x5555555551d5: file test_ft_printf_bonus.c, line 11.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 3, main () at test_ft_printf_bonus.c:11
++n
+++refresh
++n
+++refresh
++s
+ft_printf (s=0x555555556004 "hello there\n") at srcs/bonus/ft_printf_bonus.c:85
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break subsequence_parser 
+Breakpoint 1 at 0x1ed8: file srcs/bonus/ft_printf_utils_3_bonus.c, line 66.
++c
+The program is not being run.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, subsequence_parser (seq_start=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:66
++s
+err_check (seq_start=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:26
++n
+++refresh
++print i
+$1 = 0
++print seq_start 
+$2 = 0x555555556011 "s\n"
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print seq_start 
+$3 = 0x555555556011 "s\n"
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break subsequence_parser 
+Breakpoint 1 at 0x1f0b: file srcs/bonus/ft_printf_utils_3_bonus.c, line 79.
++c
+The program is not being run.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, subsequence_parser (seq_start=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:79
++s
+err_check (seq_start=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:39
++n
+++refresh
++print seq_start 
+$1 = 0x555555556011 "s\n"
++print i
+$2 = 0
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++eixt
+Undefined command: "eixt".  Try "help".
++exit
+Please answer y or n.
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break subsequence_parser 
+Breakpoint 1 at 0x1f4b: file srcs/bonus/ft_printf_utils_3_bonus.c, line 81.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, subsequence_parser (seq_start=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:81
++s
+err_check (seq_start=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:41
++n
+++refresh
++s
+ft_isws (c=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:22
++print c
+$1 = 0x555555556011 "s\n"
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+err_check (seq_start=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:42
++print seq_start 
+$2 = 0x555555556011 "s\n"
++print i
+$3 = 0
++n
+++refresh
++n
+++refresh
++s
+ft_isws (c=0x555555556012 "\n") at srcs/bonus/ft_printf_utils_3_bonus.c:22
++print c
+$4 = 0x555555556012 "\n"
++n
+++refresh
++print c
+$5 = 0x555555556012 "\n"
++print c[0]
+$6 = 10 '\n'
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break err_check 
+Breakpoint 1 at 0x1e4a: file srcs/bonus/ft_printf_utils_3_bonus.c, line 39.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, err_check (seq_start=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:39
++n
+++refresh
++s
+ft_isws (c=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:22
++print c
+$1 = 0x555555556011 "s\n"
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+err_check (seq_start=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:40
++n
+++refresh
++n
+++refresh
++print seq_start 
+$2 = 0x555555556011 "s\n"
++print i
+$3 = 1
++s
+ft_isws (c=0x555555556012 "\n") at srcs/bonus/ft_printf_utils_3_bonus.c:22
++print c
+$4 = 0x555555556012 "\n"
++n
+++refresh
++n
+++refresh
++n
+++refresh
+err_check (seq_start=0x555555556011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:40
++n
+++refresh
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break subsequence_parser 
+Breakpoint 1 at 0x1ff4: file srcs/bonus/ft_printf_utils_3_bonus.c, line 82.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, subsequence_parser (seq_start=0x555555557011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:82
++s
+err_check (seq_start=0x555555557011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:39
++n
+++refresh
++print seq_start 
+$1 = 0x555555557011 "s\n"
++print seq_len 
+$2 = 0
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print seq_len 
+$3 = 1
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subsequence_parser (seq_start=0x555555557011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:83
++print seq_len 
+$4 = 1
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+ft_printf (s=0x555555557010 "%s\n") at srcs/bonus/ft_printf_bonus.c:101
++print seq_len 
+$5 = 1
++n
+++refresh
++print print_count 
+$6 = 0
++n
+++refresh
++print print_count 
+$7 = 1
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break subsequence_parser 
+Breakpoint 1 at 0x1ce0: file srcs/bonus/ft_printf_utils_3_bonus.c, line 117.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, subsequence_parser (seq_start=0x555555557011 "s\n", parg=0x7fffffffda90, fd=1, print_count=0x7fffffffda7c) at srcs/bonus/ft_printf_utils_3_bonus.c:117
++n
+++refresh
++print seq_len 
+$1 = 1
++print seq_start 
+$2 = 0x555555557011 "s\n"
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print print_count 
+$3 = (int *) 0x7fffffffda7c
++printprint_count 
+Undefined command: "printprint_count".  Try "help".
++print *print_count 
+$4 = 0
++print fd
+$5 = 1
++print seq_start 
+$6 = 0x555555557011 "s\n"
++print seq_len 
+$7 = 1
++print seq_start[seq_len]
+$8 = 10 '\n'
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break subsequence_parser 
+Breakpoint 1 at 0x1ce0: file srcs/bonus/ft_printf_utils_3_bonus.c, line 117.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, subsequence_parser (seq_start=0x555555557011 "s\n", parg=0x7fffffffda90, fd=1, print_count=0x7fffffffda7c) at srcs/bonus/ft_printf_utils_3_bonus.c:117
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print seq_start 
+$1 = 0x555555557011 "s\n"
++print seq_start[seq_len]
+$2 = 10 '\n'
++print seq_start[seq_len - 1]
+$3 = 115 's'
++s
+format_switch_fd (c=115 's', parg=0x7fffffffda90, fd=1, print_count=0x7fffffffda7c) at srcs/bonus/ft_printf_utils_3_bonus.c:29
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subsequence_parser (seq_start=0x555555557011 "s\n", parg=0x7fffffffda90, fd=1, print_count=0x7fffffffda7c) at srcs/bonus/ft_printf_utils_3_bonus.c:124
++n
+++refresh
++n
+++refresh
++n
+++refresh
+ft_printf (s=0x555555557010 "%s\n") at srcs/bonus/ft_printf_bonus.c:66
++print seq_len 
+$4 = 1
++print print_count 
+$5 = 11
++n
+++refresh
++print i
+$6 = 0
++n
+++refresh
++print i
+$7 = 1
++n
+++refresh
++print i
+$8 = 2
++i = 1
+Undefined info command: "= 1".  Try "help info".
++set i = 1
+Ambiguous set command "i = 1": index-cache, inferior-tty, input-radix, interactive-mode.
++print i
+$9 = 2
++set variable i = 1
++pritn i
+Undefined command: "pritn".  Try "help".
++print i
+$10 = 1
++print s[i]
+$11 = 115 's'
++n
+++refresh
++n
+++refresh
++print s
+$12 = 0x555555557010 "%s\n"
++n
+++refresh
++print s[i]
+$13 = 10 '\n'
++n
+++refresh
++n
+++refresh
++print print_count 
+$14 = 12
++n
+++refresh
++print s[i]
+$15 = 0 '\000'
++n
+++refresh
++exit
++define hook-next
+Quit
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break subsequence_parser 
+Breakpoint 1 at 0x204a: file srcs/bonus/ft_printf_utils_3_bonus.c, line 105.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, subsequence_parser (seq_start=0x555555557011 "s\n", parg=0x7fffffffda90, fd=1, print_count=0x7fffffffda7c) at srcs/bonus/ft_printf_utils_3_bonus.c:105
++s
+err_check (seq_start=0x555555557011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:43
++n
+++refresh
++n
+++refresh
++print seq_start 
+$1 = 0x555555557011 "s\n"
++s
++n
+++refresh
++print seq_len 
+$2 = 1
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break err_check 
+Breakpoint 1 at 0x1f0e: file srcs/bonus/ft_printf_utils_3_bonus.c, line 44.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, err_check (seq_start=0x555555557011 "s\n") at srcs/bonus/ft_printf_utils_3_bonus.c:44
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print seq_start[seq_len]
+$1 = 10 '\n'
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break write_to_buf 
+Breakpoint 1 at 0x2615: file srcs/bonus/ft_printf_utils_use_flags_bonus.c, line 149.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, write_to_buf (buf=0x55555555a700 "", str=0x555555557031 "-", len=1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:149
++n
+++refresh
++print str
+$1 = 0x555555557031 "-"
++print buf
+$2 = 0x55555555a700 ""
++print len
+$3 = 1
++n
+++refresh
++print str
+$4 = 0x555555557031 "-"
++n
+++refresh
++print new_buf 
+$5 = 0x55555555a740 "-"
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+ft_putnbr_fd_p (n=-123, buf=0x55555555a700 <incomplete sequence \362>) at srcs/bonus/ft_printf_utils_1_bonus.c:82
++print buf
+$6 = 0x55555555a700 <incomplete sequence \362>
++rn
+Target multi-thread does not support this command.
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break write_to_buf 
+Breakpoint 1 at 0x2615: file srcs/bonus/ft_printf_utils_use_flags_bonus.c, line 149.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, write_to_buf (buf=0x55555555a700 "", str=0x555555557031 "-", len=1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:149
++exit
+Please answer y or n.
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++n
+++refresh
+The program is not being run.
++start
+Temporary breakpoint 1 at 0x1215: file test_ft_printf_bonus.c, line 10.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 1, main () at test_ft_printf_bonus.c:10
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_printf (s=0x55555555700d "\nft_printf\n") at srcs/bonus/ft_printf_bonus.c:85
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+main () at test_ft_printf_bonus.c:16
++s
+ft_printf (s=0x555555557004 "d:[%#d]\n") at srcs/bonus/ft_printf_bonus.c:85
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subsequence_parser (seq_start=0x555555557008 "#d]\n", parg=0x7fffffffda80, fd=1, print_count=0x7fffffffda6c) at srcs/bonus/ft_printf_utils_3_bonus.c:72
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print buf
+$1 = 0x55555555a700 ""
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++n
+++refresh
+The program is not being run.
++n
+++refresh
+The program is not being run.
++start
+Temporary breakpoint 1 at 0x1215: file test_ft_printf_bonus.c, line 10.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 1, main () at test_ft_printf_bonus.c:10
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++break subsequence_parser 
+Breakpoint 2 at 0x555555555eb3: file srcs/bonus/ft_printf_utils_3_bonus.c, line 72.
++c
+Continuing.
+
+Breakpoint 2, subsequence_parser (seq_start=0x555555557008 "#d]\n", parg=0x7fffffffda80, fd=1, print_count=0x7fffffffda6c) at srcs/bonus/ft_printf_utils_3_bonus.c:72
+warning: Source file is more recent than executable.
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print buf
+$1 = 0x55555555a700 ""
++n
+++refresh
++s
+subseq_build (seq_info=0x55555555a2c0, parg=0x7fffffffda80, buf=0x7fffffffda28) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:111
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++target remote | /usr/bin/vgdb --pid=80072
+Remote debugging using | /usr/bin/vgdb --pid=80072
+relaying data between gdb and process 80072
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++break main
+Breakpoint 1 at 0x109215: file test_ft_printf_bonus.c, line 10.
++run
+The "remote" target does not support "run".  Try "help target" or "continue".
++c
+Continuing.
+
+Breakpoint 1, main () at test_ft_printf_bonus.c:10
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_printf (s=0x10b004 "d:[%#d]\n") at srcs/bonus/ft_printf_bonus.c:85
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subsequence_parser (seq_start=0x10b008 "#d]\n", parg=0x1ffefff950, fd=1, print_count=0x1ffefff93c) at srcs/bonus/ft_printf_utils_3_bonus.c:72
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subseq_build (seq_info=0x4a9d090, parg=0x1ffefff950, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:111
++s
++s
++s
+subseq_pound (seq_info=0x4a9d090, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:65
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subseq_build (seq_info=0x4a9d090, parg=0x1ffefff950, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:115
++n
+++refresh
++s
+format_switch_fd (c=100 'd', parg=0x1ffefff950, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_bonus.c:52
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_putnbr_fd_p (n=123, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_putnbr_fd_p (n=12, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_putnbr_fd_p (n=1, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+write_to_buf (buf=0x1ffefff8f8, str=0x1ffefff7af "1\001", len=1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:145
++n
+++refresh
++s
++n
+++refresh
++s
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+ft_putnbr_fd_p (n=1, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:94
++n
+++refresh
++n
+++refresh
+ft_putnbr_fd_p (n=12, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:89
++n
+++refresh
++n
+++refresh
++n
+++refresh
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a72a in ft_strlen ()
++rn
+Target remote does not support this command.
++layout src
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++break ft_putnbr_fd_p 
+Breakpoint 2 at 0x109891: file srcs/bonus/ft_printf_utils_1_bonus.c, line 73.
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a72a in ft_strlen ()
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++c
+The program is not being run.
++start
+Temporary breakpoint 3 at 0x109215: file test_ft_printf_bonus.c, line 10.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/test_ft_printf_bonus 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main () at test_ft_printf_bonus.c:10
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_printf (s=0x555555557004 "d:[%#d]\n") at srcs/bonus/ft_printf_bonus.c:85
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subsequence_parser (seq_start=0x555555557008 "#d]\n", parg=0x7fffffffd950, fd=1, print_count=0x7fffffffd93c) at srcs/bonus/ft_printf_utils_3_bonus.c:72
++target remote | /usr/bin/vgdb --pid=80253
+Remote debugging using | /usr/bin/vgdb --pid=80253
+relaying data between gdb and process 80253
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++run
+The "remote" target does not support "run".  Try "help target" or "continue".
++c
+Continuing.
+
+Breakpoint 1, main () at test_ft_printf_bonus.c:10
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_printf (s=0x10b004 "d:[%#d]\n") at srcs/bonus/ft_printf_bonus.c:85
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subsequence_parser (seq_start=0x10b008 "#d]\n", parg=0x1ffefff950, fd=1, print_count=0x1ffefff93c) at srcs/bonus/ft_printf_utils_3_bonus.c:72
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subseq_build (seq_info=0x4a9d090, parg=0x1ffefff950, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:111
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+format_switch_fd (c=100 'd', parg=0x1ffefff950, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_bonus.c:52
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+
+Breakpoint 2, ft_putnbr_fd_p (n=123, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+
+Breakpoint 2, ft_putnbr_fd_p (n=12, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+
+Breakpoint 2, ft_putnbr_fd_p (n=1, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+write_to_buf (buf=0x1ffefff8f8, str=0x1ffefff7af "1\001", len=1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:145
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+ft_putnbr_fd_p (n=1, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:94
++n
+++refresh
++n
+++refresh
+ft_putnbr_fd_p (n=12, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:89
++n
+++refresh
++n
+++refresh
++s
+write_to_buf (buf=0x1ffefff8f8, str=0x1ffefff7ef "2\f", len=1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:145
++n
+++refresh
++print str
+$1 = 0x1ffefff7ef "2\f"
++print buf
+$2 = (char **) 0x1ffefff8f8
++print *buf
+$3 = 0x4a9d530 ""
++print len
+$4 = 1
++print str
+$5 = 0x1ffefff7ef "2\f"
++n
+++refresh
++print new_str
+$6 = 0x4a9d620 "2\f"
++n
+++refresh
++print new_str
+$7 = 0x4a9d620 "2"
++print buf
+$8 = (char **) 0x1ffefff8f8
++print *buf
+$9 = 0x4a9d530 ""
++print new_str
+$10 = 0x4a9d620 "2"
++n
+++refresh
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a72a in ft_strlen ()
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++target remote | /usr/bin/vgdb --pid=81200
+Remote debugging using | /usr/bin/vgdb --pid=81200
+relaying data between gdb and process 81200
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a72a in ft_strlen (str=0x4a9d530 "") at srcs/mandatory/ft_strlen.c:27
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a72a in ft_strlen (str=0x4a9d530 "") at srcs/mandatory/ft_strlen.c:27
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++target remote | /usr/bin/vgdb --pid=81262
+Remote debugging using | /usr/bin/vgdb --pid=81262
+relaying data between gdb and process 81262
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++break subsequence_parser 
+Breakpoint 1 at 0x109eb3: file srcs/bonus/ft_printf_utils_3_bonus.c, line 72.
++c
+Continuing.
+
+Breakpoint 1, subsequence_parser (seq_start=0x10b008 "#d]\n", parg=0x1ffefff950, fd=1, print_count=0x1ffefff93c) at srcs/bonus/ft_printf_utils_3_bonus.c:72
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subseq_build (seq_info=0x4a9d090, parg=0x1ffefff950, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:111
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+format_switch_fd (c=100 'd', parg=0x1ffefff950, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_bonus.c:52
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_putnbr_fd_p (n=123, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_putnbr_fd_p (n=12, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_putnbr_fd_p (n=1, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+ft_putnbr_fd_p (n=12, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:89
++n
+++refresh
++n
+++refresh
++s
+write_to_buf (buf=0x1ffefff8f8, str=0x1ffefff7ef "2\f", len=1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:145
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_strjoin (s1=0x4a9d530 "", s2=0x4a9d620 "2") at srcs/mandatory/ft_strjoin.c:28
++n
+++refresh
++print s1
+$1 = 0x4a9d530 ""
++print s2
+$2 = 0x4a9d620 "2"
++call ft_strlen(s2)
+$3 = 1
++call ft_strlen(s1)
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a72a in ft_strlen (str=0x4a9d530 "") at srcs/mandatory/ft_strlen.c:27
+The program being debugged was signaled while in a function called from GDB.
+GDB remains in the frame where the signal was received.
+To change this behavior use "set unwindonsignal on".
+Evaluation of the expression containing the function
+(ft_strlen) will be abandoned.
+When the function is done executing, GDB will silently stop.
++print c
+No symbol "c" in current context.
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++n
+++refresh
+Single stepping until exit from function _vgr10050ZU_VgSoSynsomalloc_free,
+which has no line number information.
+ft_putnbr_fd_p (n=12, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:94
++print c
+$4 = 50 '2'
++n
+++refresh
++n
+++refresh
+ft_putnbr_fd_p (n=123, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:89
++print c
+$5 = 0 '\000'
++n
+++refresh
++print c
+$6 = 0 '\000'
++n
+++refresh
++n
+++refresh
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++n
+++refresh
+Single stepping until exit from function _vgr10050ZU_VgSoSynsomalloc_free,
+which has no line number information.
+write_to_buf (buf=0x1ffefff8f8, str=0x1ffefff82f "3{", len=1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:154
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+ft_putnbr_fd_p (n=123, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:94
++print c
+$7 = 51 '3'
++n
+++refresh
++n
+++refresh
+format_switch_fd (c=100 'd', parg=0x1ffefff950, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_bonus.c:72
++print buf
+$8 = (char **) 0x1ffefff8f8
++print *buf
+$9 = 0x4a9d530 ""
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a72a in ft_strlen (str=0x4a9d530 "") at srcs/mandatory/ft_strlen.c:27
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++c
+The program is not being run.
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++target remote | /usr/bin/vgdb --pid=81469
+Remote debugging using | /usr/bin/vgdb --pid=81469
+relaying data between gdb and process 81469
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++break subsequence_parser 
+Breakpoint 1 at 0x109eb3: file srcs/bonus/ft_printf_utils_3_bonus.c, line 72.
++c
+Continuing.
+
+Breakpoint 1, subsequence_parser (seq_start=0x10b008 "#d]\n", parg=0x1ffefff950, fd=1, print_count=0x1ffefff93c) at srcs/bonus/ft_printf_utils_3_bonus.c:72
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print buf
+$1 = 0x4a9d530 ""
++print x/10bc
+No symbol "x" in current context.
++x/10bc
+Argument required (starting display address).
++x/10bc buf
+0x4a9d530:	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x4a9d538:	0 '\000'	0 '\000'
++n
+++refresh
++s
+subseq_build (seq_info=0x4a9d090, parg=0x1ffefff950, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:111
++print buf
+$2 = (char **) 0x1ffefff8f8
++print *buf
+$3 = 0x4a9d530 ""
++x/10bc buf
+0x1ffefff8f8:	48 '0'	-43 '\325'	-87 '\251'	4 '\004'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x1ffefff900:	-112 '\220'	-48 '\320'
++x/10bc *buf
+0x4a9d530:	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x4a9d538:	0 '\000'	0 '\000'
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+format_switch_fd (c=100 'd', parg=0x1ffefff950, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_bonus.c:52
++x/10bc *buf
+0x4a9d530:	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x4a9d538:	0 '\000'	0 '\000'
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_putnbr_fd_p (n=123, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++x/10bc *buf
+0x4a9d530:	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x4a9d538:	0 '\000'	0 '\000'
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_putnbr_fd_p (n=12, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_putnbr_fd_p (n=1, buf=0x1ffefff8f8) at srcs/bonus/ft_printf_utils_1_bonus.c:73
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++x/10bc *buf
+0x4a9d530:	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x4a9d538:	0 '\000'	0 '\000'
++s
+write_to_buf (buf=0x1ffefff8f8, str=0x1ffefff7af "1\001", len=1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:145
++n
+++refresh
++x/10bc *buf
+0x4a9d530:	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x4a9d538:	0 '\000'	0 '\000'
++print str
+$4 = 0x1ffefff7af "1\001"
++print len
+$5 = 1
++n
+++refresh
++print new_str
+$6 = 0x4a9d580 "1\001"
++n
+++refresh
++print new_str
+$7 = 0x4a9d580 "1"
++x/10bc *buf
+0x4a9d530:	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x4a9d538:	0 '\000'	0 '\000'
++s
+ft_strjoin (s1=0x4a9d530 "", s2=0x4a9d580 "1") at srcs/mandatory/ft_strjoin.c:28
++print s1
+$8 = 0x4a9d530 ""
++print s2
+$9 = 0x4a9d580 "1"
++x/10bc s1
+0x4a9d530:	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x4a9d538:	0 '\000'	0 '\000'
++n
+++refresh
++s
+ft_strlen (str=0x4a9d530 "") at srcs/mandatory/ft_strlen.c:26
++print str
+$10 = 0x4a9d530 ""
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print i
+$11 = 0
++n
+++refresh
+ft_strjoin (s1=0x4a9d530 "", s2=0x4a9d580 "1") at srcs/mandatory/ft_strjoin.c:31
++s
+ft_strlen (str=0x4a9d580 "1") at srcs/mandatory/ft_strlen.c:26
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print i
+$12 = 1
++n
+++refresh
++n
+++refresh
+ft_strjoin (s1=0x4a9d530 "", s2=0x4a9d580 "1") at srcs/mandatory/ft_strjoin.c:32
++print s1_len
+$13 = 0
++print s2_len
+$14 = 1
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print ptr
+$15 = 0x4a9d5d0 "1"
++print s1
+$16 = 0x4a9d530 ""
++print s2
+$17 = 0x4a9d580 "1"
++n
+++refresh
++n
+++refresh
+write_to_buf (buf=0x1ffefff8f8, str=0x1ffefff7af "1\001", len=1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:151
++n
+++refresh
++print new_str
+$18 = 0x4a9d580 "1"
++n
+++refresh
++x/10bc *buf
+0x4a9d530:	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'	0 '\000'
+0x4a9d538:	0 '\000'	0 '\000'
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print buf
+$19 = (char **) 0x1ffefff768
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a72a in ft_strlen (str=0x4a9d530 "") at srcs/mandatory/ft_strlen.c:27
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010a72a in ft_strlen (str=0x4a9d530 "") at srcs/mandatory/ft_strlen.c:27
++c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000484b27f in _vgr10050ZU_VgSoSynsomalloc_free () from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++break subsequence_parser 
+Breakpoint 1 at 0x1e9b: file srcs/bonus/ft_printf_utils_3_bonus.c, line 72.
++target remote | /usr/bin/vgdb --pid=83071
+Remote debugging using | /usr/bin/vgdb --pid=83071
+relaying data between gdb and process 83071
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++break subsequence_parser 
+Note: breakpoint 1 also set at pc 0x109e9b.
+Breakpoint 2 at 0x109e9b: file srcs/bonus/ft_printf_utils_3_bonus.c, line 72.
++info break 
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000000000109e9b in subsequence_parser 
+                                                   at srcs/bonus/ft_printf_utils_3_bonus.c:72
+2       breakpoint     keep y   0x0000000000109e9b in subsequence_parser 
+                                                   at srcs/bonus/ft_printf_utils_3_bonus.c:72
++del 2
++info break
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000000000109e9b in subsequence_parser 
+                                                   at srcs/bonus/ft_printf_utils_3_bonus.c:72
++c
+Continuing.
+
+Breakpoint 1, subsequence_parser (seq_start=0x10b008 "#s]\n", parg=0x1ffefff960, fd=1, print_count=0x1ffefff94c) at srcs/bonus/ft_printf_utils_3_bonus.c:72
++n
+++refresh
++print seq_start 
+$1 = 0x10b008 "#s]\n"
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subseq_build (seq_info=0x4a9d040, parg=0x1ffefff960, buf=0x1ffefff908) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:111
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subsequence_parser (seq_start=0x10b008 "#s]\n", parg=0x1ffefff960, fd=1, print_count=0x1ffefff94c) at srcs/bonus/ft_printf_utils_3_bonus.c:92
++exit
+Not confirmed.
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++exit
++define hook-next
+Reading symbols from test_ft_printf_bonus...
++target remote | /usr/bin/vgdb --pid=102256
+Remote debugging using | /usr/bin/vgdb --pid=102256
+relaying data between gdb and process 102256
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++break main
+Breakpoint 1 at 0x109215: file test_ft_printf_bonus.c, line 10.
++run
+The "remote" target does not support "run".  Try "help target" or "continue".
++c
+Continuing.
+
+Breakpoint 1, main () at test_ft_printf_bonus.c:10
++n
+++refresh
++n
+++refresh
++s
+ft_printf (s=0x10c018 "c: %c\n") at srcs/bonus/ft_printf_bonus.c:110
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subsequence_parser (seq_start=0x10c01c "c\n", parg=0x1ffefff960, fd=1, print_count=0x1ffefff94c) at srcs/bonus/ft_printf_utils_3_bonus.c:72
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print ssb_ret
+$1 = -1
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++target remote | /usr/bin/vgdb --pid=102397
+Remote debugging using | /usr/bin/vgdb --pid=102397
+relaying data between gdb and process 102397
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++break subseq_build 
+Breakpoint 2 at 0x10a9aa: file srcs/bonus/ft_printf_utils_use_flags_bonus.c, line 117.
++run
+The "remote" target does not support "run".  Try "help target" or "continue".
++c
+Continuing.
+
+Breakpoint 1, main () at test_ft_printf_bonus.c:10
++c
+Continuing.
+
+Breakpoint 2, subseq_build (seq_info=0x4a9d040, parg=0x1ffefff960, buf=0x1ffefff908) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:117
++n
+++refresh
++n
+++refresh
++s
+format_switch_buf (c=99 'c', parg=0x1ffefff960, buf=0x1ffefff908) at srcs/bonus/ft_printf_bonus.c:55
++n
+++refresh
++s
+ft_putchar_buf (c=87 'W', buf=0x1ffefff908) at srcs/bonus/ft_printf_utils_1_bonus.c:25
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+write_to_buf (buf=0x1ffefff908, str=0x4a9d0f0 "W", len=1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:156
++n
+++refresh
++n
+++refresh
++print len
+$2 = 1
++print str
+$3 = 0x4a9d0f0 "W"
++print new_str
+$4 = 0x4a9d140 "W"
++n
+++refresh
++n
+++refresh
++print new_buf
+$5 = 0x4a9d190 "W"
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print *buf
+$6 = 0x4a9d190 "W"
++call ft_strlen(*buf)
+$7 = 1
++n
+++refresh
++n
+++refresh
+ft_putchar_buf (c=87 'W', buf=0x1ffefff908) at srcs/bonus/ft_printf_utils_1_bonus.c:29
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+format_switch_buf (c=99 'c', parg=0x1ffefff960, buf=0x1ffefff908) at srcs/bonus/ft_printf_bonus.c:57
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subseq_build (seq_info=0x4a9d040, parg=0x1ffefff960, buf=0x1ffefff908) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:124
++exit

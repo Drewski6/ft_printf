@@ -1,0 +1,83 @@
+bonus_testing.c: In function ‘main’:
+bonus_testing.c:55:31: warning: '0' flag used with ‘%c’ gnu_printf format [-Wformat=]
+   55 |         printf("010c:\t---%010c---\n", 'c');
+      |                               ^
+bonus_testing.c:56:31: warning: '0' flag used with ‘%s’ gnu_printf format [-Wformat=]
+   56 |         printf("010s:\t---%010s---\n", "string");
+      |                               ^
+bonus_testing.c:57:31: warning: '0' flag used with ‘%p’ gnu_printf format [-Wformat=]
+   57 |         printf("020p:\t---%020p---\n", &pointer);
+      |                               ^
+bonus_testing.c:85:31: warning: precision used with ‘%c’ gnu_printf format [-Wformat=]
+   85 |         printf("4.8c:\t---%4.8c---\n", 'c');
+      |                               ^
+bonus_testing.c:87:31: warning: precision used with ‘%p’ gnu_printf format [-Wformat=]
+   87 |         printf("4.8p:\t---%4.8p---\n", &pointer);
+      |                               ^
+bonus_testing.c:112:24: warning: '#' flag used with ‘%c’ gnu_printf format [-Wformat=]
+  112 |         printf("#c:\t%#c\n", 'c');
+      |                        ^
+bonus_testing.c:113:24: warning: '#' flag used with ‘%s’ gnu_printf format [-Wformat=]
+  113 |         printf("#s:\t%#s\n", "string");
+      |                        ^
+bonus_testing.c:114:24: warning: '#' flag used with ‘%p’ gnu_printf format [-Wformat=]
+  114 |         printf("#p:\t%#p\n", &pointer);
+      |                        ^
+bonus_testing.c:115:24: warning: '#' flag used with ‘%d’ gnu_printf format [-Wformat=]
+  115 |         printf("#d:\t%#d\n", 1234);
+      |                        ^
+bonus_testing.c:116:24: warning: '#' flag used with ‘%i’ gnu_printf format [-Wformat=]
+  116 |         printf("#i:\t%#i\n", 1234);
+      |                        ^
+bonus_testing.c:117:24: warning: '#' flag used with ‘%u’ gnu_printf format [-Wformat=]
+  117 |         printf("#u:\t%#u\n", 1234);
+      |                        ^
+bonus_testing.c:139:27: warning: ' ' flag used with ‘%c’ gnu_printf format [-Wformat=]
+  139 |         printf(" c:\t---% c---\n", 'c');
+      |                           ^
+bonus_testing.c:140:27: warning: ' ' flag used with ‘%s’ gnu_printf format [-Wformat=]
+  140 |         printf(" s:\t---% s---\n", "string");
+      |                           ^
+bonus_testing.c:141:27: warning: ' ' flag used with ‘%p’ gnu_printf format [-Wformat=]
+  141 |         printf(" p:\t---% p---\n", &pointer);
+      |                           ^
+bonus_testing.c:144:27: warning: ' ' flag used with ‘%u’ gnu_printf format [-Wformat=]
+  144 |         printf(" u:\t---% u---\n", 1234);
+      |                           ^
+bonus_testing.c:145:27: warning: ' ' flag used with ‘%x’ gnu_printf format [-Wformat=]
+  145 |         printf(" x:\t---% x---\n", 1234);
+      |                           ^
+bonus_testing.c:146:27: warning: ' ' flag used with ‘%X’ gnu_printf format [-Wformat=]
+  146 |         printf(" X:\t---% X---\n", 1234);
+      |                           ^
+bonus_testing.c:165:31: warning: '+' flag used with ‘%c’ gnu_printf format [-Wformat=]
+  165 |         printf("+10c:\t---%+10c---\n", 'c');
+      |                               ^
+bonus_testing.c:166:31: warning: '+' flag used with ‘%s’ gnu_printf format [-Wformat=]
+  166 |         printf("+10s:\t---%+10s---\n", "string");
+      |                               ^
+bonus_testing.c:167:31: warning: '+' flag used with ‘%p’ gnu_printf format [-Wformat=]
+  167 |         printf("+20p:\t---%+20p---\n", &pointer);
+      |                               ^
+bonus_testing.c:170:31: warning: '+' flag used with ‘%u’ gnu_printf format [-Wformat=]
+  170 |         printf("+10u:\t---%+10u---\n", 1234);
+      |                               ^
+bonus_testing.c:171:31: warning: '+' flag used with ‘%x’ gnu_printf format [-Wformat=]
+  171 |         printf("+10x:\t---%+10x---\n", 1234);
+      |                               ^
+bonus_testing.c:172:31: warning: '+' flag used with ‘%X’ gnu_printf format [-Wformat=]
+  172 |         printf("+10X:\t---%+10X---\n", 1234);
+      |                               ^
+bonus_testing.c:178:25: warning: unknown conversion type character ‘ ’ in format [-Wformat=]
+  178 |         printf("10:\t%10 \n");
+      |                         ^
+bonus_testing.c:184:24: warning: repeated '#' flag in format [-Wformat=]
+  184 |         printf("10:\t%##10x %s \n", "Does this print?", "second string");
+      |                        ^
+bonus_testing.c:184:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘char *’ [-Wformat=]
+  184 |         printf("10:\t%##10x %s \n", "Does this print?", "second string");
+      |                      ~~~~~^         ~~~~~~~~~~~~~~~~~~
+      |                           |         |
+      |                           |         char *
+      |                           unsigned int
+      |                      %##10s

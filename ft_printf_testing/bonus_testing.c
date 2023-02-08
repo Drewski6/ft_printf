@@ -83,7 +83,7 @@ int main (void)
 
 	printf("\n***** printf with . *****\n");
 	printf("4.8c:\t---%4.8c---\n", 'c');
-	printf("4.8s:\t---%4.8s---\n", "this is a long string");
+	printf("4.8s:\t---%4.8s---\n", "t");
 	printf("4.8p:\t---%4.8p---\n", &pointer);
 	printf("4.8d:\t---%4.8d---\n", 1234);
 	printf("4.8i:\t---%4.8i---\n", 1234);
@@ -173,6 +173,18 @@ int main (void)
 
 	printf("+10i:\t---%+10i---\n", 1234);
 	printf("+10i:\t---%+10i---\n", -1234);
+
+//	Check for no format specifier.
+	printf("10:\t%10 \n");
+
+//	Check for no whitespace
+	printf("10:\t%10s %s \n", "Does this print?", "second string");
+
+//	Check if dups allowed
+	printf("10:\t%##10x %s \n", "Does this print?", "second string");
+
+
+	printf("d: %#10.12x\n", 1234);
 
 	return 0;
 }

@@ -18,7 +18,7 @@ int main (void)
 	printf(" %d\n", printf("Testing hexidecimal upper: %X", 1234));
 	printf(" %d\n", printf("Testing pointer: %p", (void *)sample));
 	printf(" %d\n", printf("Testing unsigned decimal: %u", -12345));
-	printf(" %d\n", printf(" NULL %s NULL ", NULL));
+	//printf(" %d\n", printf(" NULL %s NULL ", NULL));
 
 	free(sample);
 	return (0);
