@@ -14,7 +14,10 @@
 
 /*	*** decimal_precision (decimal precision) ***
  *
- *
+ *	Adds 0 padding after sign if precision is greater than current buffer 
+ *	length.
+ *	Takes t_flags struct pointer 'seq_info'.
+ *	Returns 0 on success or -1 on ERROR.
  */
 
 int	decimal_precision(t_flags *seq_info)
@@ -44,7 +47,13 @@ int	decimal_precision(t_flags *seq_info)
 
 /*	*** subseq_decimal (subsequence decimal) ***
  *
- *
+ *	Used with decimal_precision to edit buffer when a decimal flag is present.
+ *	If format specifier is for a string, ft_memcpy only precision amount. This
+ *	will retain only 'seq_info->precision' amount of the buffer.
+ *	If format specifier is anything other than a string, then decimal_precision
+ *	is called.
+ *	Takes a t_flags struct pointer 'seq_info'.
+ *	Returns precision length on success or -1 on ERROR.
  */
 
 int	subseq_decimal(t_flags *seq_info)
@@ -74,7 +83,10 @@ int	subseq_decimal(t_flags *seq_info)
 
 /*	*** subseq_pound (subsequence pound) ***
  *
- *
+ *	Adds 0x or 0X in beginning of buffer if format specifier is a x or X (d is
+ *	a passthrough).
+ *	Takes a t_flags struct pointer 'seq_info'.
+ *	Returns 0 on success or -1 on ERROR.
  */
 
 int	subseq_pound(t_flags *seq_info)
@@ -100,7 +112,10 @@ int	subseq_pound(t_flags *seq_info)
 
 /*	*** subseq_sign (subsequence sign) ***
  *
- *
+ *	Adds a sign to the buffer if the space_flag OR the plus_flag is set (but
+ *	not both).
+ *	Takes a t_flags struct pointer 'seq_info'.
+ *	Returns 0 on success or -1 on ERROR.
  */
 
 int	subseq_sign(t_flags *seq_info)
@@ -132,7 +147,9 @@ int	subseq_sign(t_flags *seq_info)
 
 /*	*** subseq_padding (subsequence padding) ***
  *
- *
+ *	Adds padding to buffer after '-' symbol if one is present but before number.
+ *	Takes a t_flags struct pointer 'seq_info'.
+ *	Returns 0 on success or -1 on ERROR.
  */
 
 int	subseq_padding(t_flags *seq_info)

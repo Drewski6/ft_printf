@@ -14,6 +14,8 @@
 
 /*	*** ft_iswsp (42 is whitespace or percent) ***
  *
+ *	Takes a character 'c'.
+ *	Returns 1 if 'c' is a whitespace or a percent symbol or 0 if not.
  */
 
 int	ft_iswsp(const char *c)
@@ -31,7 +33,8 @@ int	ft_iswsp(const char *c)
  *		increases len, then checks for format specifier. If one is found, break.
  *	Second while loop makes sure all characters are format specifiers, flags
  *		or digits for padding.
- *	Returns length of sequence 'seq_len' on success and -1 on error.
+ *	Takes pointer to sequence start 'seq_start'.
+ *	Returns length of sequence 'seq_len' on success and -1 on ERROR.
  */
 
 int	err_check(const char *seq_start)
@@ -64,7 +67,11 @@ int	err_check(const char *seq_start)
 
 /*	***  subseq_b_and_p (subsequence build and print) ***
  *
- *
+ *	Calls subseq_build and subseq_print respectively. This function is mostly
+ *	for handling errors and reducing function size from subseq_perser.
+ *	Takes t_flags struct pointer, va_list pointer 'parg', file descriptor 'fd',
+ *	and pointer to int 'print_count'.
+ *	Returns 0 on success or -1 on ERROR.
  */
 
 int	subseq_b_and_p(t_flags *seq_info, va_list parg, int fd, int *print_count)
@@ -92,7 +99,12 @@ int	subseq_b_and_p(t_flags *seq_info, va_list parg, int fd, int *print_count)
 /*	*** subseq_parser (subsequence parser) ***
  *
  *	Parses the subsequence (flags, precision, format specifiers) after a % sign.
- *	Returns -1 on error and 'seq_len' on success.
+ *	After error checking and allocating for struct and buffer, calls
+ *	subseq_b_and_p to build and print the buffer.
+ *	Frees all allocated memory at the end.
+ *	Takes the address of the beginning of the subsequence 'seq_start', va_list
+ *	pointer 'parg', file descriptor 'fd', and pointer to integer 'print_count'
+ *	Returns 'seq_len' on success or -1 on ERROR.
  */
 
 int	subseq_parser(const char *seq_start, va_list parg,

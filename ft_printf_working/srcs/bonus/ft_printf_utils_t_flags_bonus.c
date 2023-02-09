@@ -17,22 +17,24 @@
  *	This is a debugging function to use to view a t_flags struct and its
  *	values.
  *	Would like to update. quick and dirty for now.....
+ *	Takes a t_flags struct pointer 'seq_info'.
+ *	Returns nothing.
  */
 
-void	t_flags_inspect(t_flags *seq)
+void	t_flags_inspect(t_flags *seq_info)
 {
 	printf("\n");
-	printf("minus_flag:\t%d\n", seq->minus_flag);
-	printf("zero_flag:\t%d\n", seq->zero_flag);
-	printf("decimal_flag:\t%d\n", seq->decimal_flag);
-	printf("pound_flag:\t%d\n", seq->pound_flag);
-	printf("space_flag:\t%d\n", seq->space_flag);
-	printf("plus_flag:\t%d\n", seq->plus_flag);
-	printf("fs:\t\t%c\n", seq->fs);
-	printf("width:\t\t%ld\n", seq->width);
-	printf("precision:\t%ld\n", seq->precision);
-	printf("buf_len:\t%ld\n", seq->buf_len);
-	printf("buf:\t\t[%s]\n", seq->buf);
+	printf("minus_flag:\t%d\n", seq_info->minus_flag);
+	printf("zero_flag:\t%d\n", seq_info->zero_flag);
+	printf("decimal_flag:\t%d\n", seq_info->decimal_flag);
+	printf("pound_flag:\t%d\n", seq_info->pound_flag);
+	printf("space_flag:\t%d\n", seq_info->space_flag);
+	printf("plus_flag:\t%d\n", seq_info->plus_flag);
+	printf("fs:\t\t%c\n", seq_info->fs);
+	printf("width:\t\t%ld\n", seq_info->width);
+	printf("precision:\t%ld\n", seq_info->precision);
+	printf("buf_len:\t%ld\n", seq_info->buf_len);
+	printf("buf:\t\t[%s]\n", seq_info->buf);
 	printf("\n");
 	return ;
 }
@@ -40,6 +42,7 @@ void	t_flags_inspect(t_flags *seq)
 /*	*** t_flags_init (type flags (struct) initializer) ***
  *
  *	Creates a new instance of t_flags struct and initializes values to 0.
+ *	Takes nothing.
  *	Returns 0 on error or address of 'new_t_flags' struct on success.
  */
 
@@ -66,7 +69,10 @@ t_flags	*t_flags_init(void)
 
 /*	*** t_flags_li (type flags (struct) load integers) ***
  *
- *	Returns len in bytes of parsed string 'i' on success and -1 on error.
+ *	Runs atoi on a digit in the subsequence.
+ *	Takes address of the digits in a subsequence 'seq_digits' and a pointer
+ *	to a size_t 'seq_elem' counter / atoi return.
+ *	Returns len in bytes of parsed string 'i' on success or -1 on ERROR.
  */
 
 int	t_flags_li(char *seq_digits, size_t *seq_elem)
@@ -96,6 +102,9 @@ int	t_flags_li(char *seq_digits, size_t *seq_elem)
  *
  *	Parces sequence string and fills t_flags struct width and precision
  *	values.
+ *	Takes t_flags struct pointer 'seq_info', address in main string 's' where
+ *	the sequence starts 'seq_start', and an integer indicating the length of
+ *	the sequence 'seq_len'.
  *	Returns 0 on success or -1 on error.
  */
 
@@ -131,6 +140,9 @@ int	t_flags_w_p(t_flags *seq_info, const char *seq_start, int seq_len)
 /*	*** t_flags_fill (type flags (struct) fill) ***
  *
  *	Parses subsequence and fills t_flags with info.
+ *	Takes t_flags struct pointer 'seq_info', address in main string 's' where
+ *	the sequence starts 'seq_start', and an integer indicating the length of
+ *	the sequence 'seq_len'.
  *	Returns 0 on success and -1 on error.
  */
 

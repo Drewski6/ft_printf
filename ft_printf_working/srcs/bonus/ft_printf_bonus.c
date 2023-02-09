@@ -14,6 +14,11 @@
 
 /*	*** ft_pointer_handle (42 pointer handler) ***
  *
+ *	Called from format_switch to manage printing pointer addresses.
+ *	Prints "(nil)" for NULL pointers and full pointer addresses when address
+ *	is valid.
+ *	Takes t_flags struct pointer and va_list pointer.
+ *	Returns 0 on success and -1 on ERROR.
  */
 
 int	ft_pointer_handle(t_flags *seq_info, va_list parg)
@@ -37,6 +42,11 @@ int	ft_pointer_handle(t_flags *seq_info, va_list parg)
 
 /*	*** percent_handler () ***
  *
+ *	Once a percent is seen in main string, ft_printf passes control to this
+ *	function for managing what to do when a % is found.
+ *	Takes address of beginning of sequence 's', and 'parg', 'fd', and 
+ *	'print_count' for passthrough to subseq_parser.
+ *	Returns 'i' number of bytes parces in main string or -1 on ERROR.
  */
 
 int	percent_handler(char *s, va_list parg, int fd, int *print_count)
@@ -64,6 +74,17 @@ int	percent_handler(char *s, va_list parg, int fd, int *print_count)
 
 /*  *** ft_printf (42 print format) ***
  *
+ *	42 project for re-creating printf. 
+ *		This bonus project includes working format specifiers and flags
+ *	Format Specifiers:
+ *		c s p d i u x X %
+ *	Flags:
+ *		- 0 . # [SPACE] +
+ *	Takes a string and uses variadic macros to take unlimited format specifiers.
+ *	Returns formatted string printed to standard out.
+ *	NOTE: to change file descriptor output from stdout to any fd, add int fd
+ *	to definition and replace third parameter in percent_handler to fd, and 
+ *	change write(1, &s[i], 1) to write(fd, &s[i], 1)
  */
 
 int	ft_printf(const char *s, ...)

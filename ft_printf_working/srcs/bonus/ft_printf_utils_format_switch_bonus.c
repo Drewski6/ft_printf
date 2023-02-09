@@ -14,6 +14,10 @@
 
 /*  *** format_switch_buf_1 (format switch buffer #1) ***
  *
+ *	Part 1 of 3 functions that act as a switch for determining which function
+ *	to use to turn 'parg' to a printable string. 
+ *	Takes a t_flags struct pointer and va_list pointer.
+ *	Returns 0 on success or -1 on ERROR.
  */
 
 int	format_switch_buf_1(t_flags *seq_info, va_list parg)
@@ -43,6 +47,10 @@ int	format_switch_buf_1(t_flags *seq_info, va_list parg)
 
 /*  *** format_switch_buf_2 (format switch buffer #2) ***
  *
+ *	Part 2 of 3 functions that act as a switch for determining which function
+ *	to use to turn 'parg' to a printable string. 
+ *	Takes a t_flags struct pointer and va_list pointer.
+ *	Returns 0 on success or -1 on ERROR.
  */
 
 int	format_switch_buf_2(t_flags *seq_info, va_list parg)
@@ -72,6 +80,10 @@ int	format_switch_buf_2(t_flags *seq_info, va_list parg)
 
 /*  *** format_switch_buf_3 (format switch buffer #3) ***
  *
+ *	Part 3 of 3 functions that act as a switch for determining which function
+ *	to use to turn 'parg' to a printable string. 
+ *	Takes a t_flags struct pointer and va_list pointer.
+ *	Returns 0 on success or -1 on ERROR.
  */
 
 int	format_switch_buf_3(t_flags *seq_info, va_list parg)

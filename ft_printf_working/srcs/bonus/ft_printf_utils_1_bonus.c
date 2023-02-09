@@ -14,6 +14,9 @@
 
 /*  *** ft_putchar_buf (42 put character to buffer) ***
  *
+ *	Takes a character 'c' and a t_flags struct pointer and prints character
+ *	to buffer.
+ *	Returns 0 on success and -1 on ERROR.
  */
 
 int	ft_putchar_buf(char c, t_flags *seq_info)
@@ -35,6 +38,9 @@ int	ft_putchar_buf(char c, t_flags *seq_info)
 
 /*  *** ft_putstr_buf (42 put string to buffer) ***
  *
+ *	Takes a string 's' and a t_flags struct pointer and prints character
+ *	to buffer.
+ *	Returns 0 on success and -1 on ERROR.
  */
 
 int	ft_putstr_buf(char *s, t_flags *seq_info)
@@ -56,6 +62,9 @@ int	ft_putstr_buf(char *s, t_flags *seq_info)
 
 /*	*** ft_putnbr_buf_helper (42 put number to buffer helper) ***
  *
+ *	Helper function to reduce size of ft_putnbr_buf.
+ *	Takes long nbl and t_flags struct pointer.
+ *	Returns 0 on success or -1 on ERROR.
  */
 
 int	ft_putnbr_buf_helper(long nbl, t_flags *seq_info)
@@ -75,6 +84,12 @@ int	ft_putnbr_buf_helper(long nbl, t_flags *seq_info)
 
 /*  *** ft_putnbr_buf (42 put number buffer) ***
  *
+ *	Recursive function that takes an integer 'n' and t_flags struct pointer
+ *	and prints a string representation to a buffer.
+ *	Uses a helper function ft_putnbr_buf_helper to reduce function size for 
+ *	42 function requirements.
+ *	Takes an integer 'n' and t_flags struct pointer.
+ *	Returns 0 on success or -1 on ERROR.
  */
 
 int	ft_putnbr_buf(int n, t_flags *seq_info)

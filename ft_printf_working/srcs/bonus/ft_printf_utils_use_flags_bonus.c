@@ -14,6 +14,11 @@
 
 /*	*** subseq_build (subsequence build) ***
  *
+ *	First calls format_switch_buf_1 to write parg to buffer.
+ *	Then makes a series of function calls based on which flags are present in
+ *	subsequence.
+ *	Takes t_flags struct pointer 'seq_info', and va_list pointer 'parg'.
+ *	Returns 0 on success or -1 on ERROR.
  */
 
 int	subseq_build(t_flags *seq_info, va_list parg)
@@ -45,6 +50,10 @@ int	subseq_build(t_flags *seq_info, va_list parg)
 
 /*	*** subseq_print (subsequence print) ***
  *
+ *	Takes the buffer 'seq_info->buf' and prints 'seq_info->buf_len' to 'fd'.
+ *	Takes t_flags struct poitner 'seq_into', file descriptor integer 'fd',
+ *	and pointer to int 'print_count'.
+ *	Returns 0 on success.
  */
 
 int	subseq_print(t_flags *seq_info, int fd, int *print_count)
@@ -56,7 +65,11 @@ int	subseq_print(t_flags *seq_info, int fd, int *print_count)
 
 /*  *** ft_memjoin (42 memory join) ***
  *
- *
+ *	Works the same as ft_strjoin but uses s1_len and s2_len as parameters.
+ *	This allows the user to copy specific number of bytes rather than scanning
+ *	for a null terminator.
+ *	Takes string 's1', size_t 's1_len', string 's2', size_t 's2_len'.
+ *	Returns address of newly created pointer 'ptr'.
  */
 
 char	*ft_memjoin(char const *s1, size_t s1_len, char const *s2,
@@ -77,7 +90,13 @@ char	*ft_memjoin(char const *s1, size_t s1_len, char const *s2,
 
 /*	*** str_insert (string insert) ***
  *
- *
+ *	Based on 'wi' (write index) this function will insert string 'new_str'
+ *	at the beginning, end or in the middle of 'seq_info->buf'.
+ *	Allows more 'pythonic' string manipulation.
+ *	Takes t_flags struct pointer, address of string to add 'new_str', size_t
+ *	'len' for amount of bytes from 'new_str' to write, and int 'wi' for the
+ *	index in buf to insert 'new_str'.
+ *	Returns address of 'new_buf' on success or 0 on ERROR.
  */
 
 char	*str_insert(t_flags *seq_info, char *new_str, size_t len, int wi)
@@ -111,7 +130,12 @@ char	*str_insert(t_flags *seq_info, char *new_str, size_t len, int wi)
  *
  *	Rather than writing to a file descriptor, this write writes
  *	to a buffer.
- *	Basically str_join with len
+ *	Basically str_join with len.
+ *	Also uses str_insert to copy 'str' into specific index in buffer.
+ *	Takes a t_flags struct pointer 'seq_info', a string 'str', size_t 'len'
+ *	for the amount of bytes from the 'str' to write, and int 'wi' (write index)
+ *	for the starting place in 'str' to start writing.
+ *	Returns 'len' on success indicating number of bytes copied or -1 on ERROR.
  */
 
 int	write_to_buf(t_flags *seq_info, char *str, size_t len, int wi)
