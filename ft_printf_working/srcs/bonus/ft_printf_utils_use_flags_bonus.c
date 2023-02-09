@@ -112,8 +112,24 @@ int	subseq_build(t_flags *seq_info, va_list parg)
 		padding = seq_info->width - seq_info->buf_len;
 		while (padding > 0)
 		{
-			if (write_to_buf(seq_info, " ", 1, seq_info->minus_flag) <= 0)
-				return (-1);
+			if (seq_info->zero_flag == 0)
+			{
+				if (write_to_buf(seq_info, " ", 1, seq_info->minus_flag) <= 0)
+					return (-1);
+			}
+			else
+			{
+				if (*(seq_info->buf) == '-')
+				{
+					if (write_to_buf(seq_info, "0", 1, seq_info->minus_flag + 1) <= 0)
+						return (-1);
+				}
+				else
+				{
+					if (write_to_buf(seq_info, "0", 1, seq_info->minus_flag) <= 0)
+						return (-1);
+				}
+			}
 			padding--;
 		}
 	}
