@@ -64,13 +64,12 @@ t_flags	*t_flags_init(void)
 	return (new_t_flags);
 }
 
-/*	*** t_flags_load_ints (type flags (struct) load integers) ***
+/*	*** t_flags_li (type flags (struct) load integers) ***
  *
- *	Takes an 
  *	Returns len in bytes of parsed string 'i' on success and -1 on error.
  */
 
-int	t_flags_load_ints(char *seq_digits, size_t *seq_elem)
+int	t_flags_li(char *seq_digits, size_t *seq_elem)
 {
 	char	*p_str;
 	int		i;
@@ -114,15 +113,14 @@ int	t_flags_w_p(t_flags *seq_info, const char *seq_start, int seq_len)
 		seq_info->zero_flag = 1;
 		i++;
 	}
-	load_int = t_flags_load_ints((char *)&seq_start[i], &(seq_info->width));
+	load_int = t_flags_li((char *)&seq_start[i], &(seq_info->width));
 	if (load_int == -1)
 		return (-1);
 	i += load_int;
 	if (seq_start[i] == '.')
 	{
 		i++;
-		load_int = t_flags_load_ints((char *)&seq_start[i],
-				&(seq_info->precision));
+		load_int = t_flags_li((char *)&seq_start[i], &(seq_info->precision));
 		if (load_int == -1)
 			return (-1);
 		i += load_int;

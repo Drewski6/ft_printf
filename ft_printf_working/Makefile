@@ -25,7 +25,9 @@ BONUS_SRCS = ft_printf_bonus.c \
     ft_printf_utils_2_bonus.c \
     ft_printf_utils_3_bonus.c \
     ft_printf_utils_t_flags_bonus.c \
-	ft_printf_utils_use_flags_bonus.c
+	ft_printf_utils_use_flags_bonus.c \
+	ft_printf_utils_subseq_helpers_bonus.c \
+	ft_printf_utils_format_switch_bonus.c
 
 BONUS_SRCS_DIR = srcs/bonus/
 
@@ -62,7 +64,7 @@ LIBFT_SRCS = ft_isalpha.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr_fd.c \
+	ft_putnbr_fd.c
 
 LIBFT_SRCS_DIR = libft/srcs/mandatory/
 
@@ -106,8 +108,11 @@ SLIB = ar rcs
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(SLIB) $(NAME) -o $(OBJS)
+#$(NAME): $(OBJS)
+#	$(SLIB) $(NAME) -o $(OBJS)
+
+$(NAME): $(BONUS_OBJS) $(LIBFT_OBJS)
+	$(SLIB) $(NAME) -o $(BONUS_OBJS) $(LIBFT_OBJS)
 
 bonus: $(BONUS_OBJS) $(LIBFT_OBJS)
 	$(SLIB) $(NAME) -o $(BONUS_OBJS) $(LIBFT_OBJS)

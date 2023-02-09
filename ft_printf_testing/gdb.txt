@@ -3788,3 +3788,106 @@ $1 = 4
 +n
 ++refresh
 +exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++break percent_handler 
+Breakpoint 1 at 0x1687: file srcs/bonus/ft_printf_bonus.c, line 110.
++c
+The program is not being run.
++start
+Temporary breakpoint 2 at 0x11f1: file ft_printf_small_playground.c, line 6.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/ft_printf_small_playground 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 2, main () at ft_printf_small_playground.c:6
++c
+Continuing.
+
+Breakpoint 1, percent_handler (s=0x555555558028 "%", parg=0x7fffffffd960, fd=1, print_count=0x7fffffffd94c) at srcs/bonus/ft_printf_bonus.c:110
++n
+++refresh
++print s
+$1 = 0x555555558028 "%"
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print print_count 
+$2 = (int *) 0x7fffffffd94c
++print *print_count 
+$3 = 12
++n
+++refresh
++n
+++refresh
++n
+++refresh
+ft_printf (s=0x55555555801c "ft_printfd,%%") at srcs/bonus/ft_printf_bonus.c:154
++print ph_ret
+$4 = 2
++n
+++refresh
++n
+++refresh
++print i
+$5 = 13
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++break percent_handler 
+Breakpoint 1 at 0x1671: file srcs/bonus/ft_printf_bonus.c, line 110.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/ft_printf_small_playground 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, percent_handler (s=0x555555558028 "%", parg=0x7fffffffd960, fd=1, print_count=0x7fffffffd94c) at srcs/bonus/ft_printf_bonus.c:110
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+ft_printf (s=0x55555555801c "ft_printfd,%%") at srcs/bonus/ft_printf_bonus.c:154
++print ph_ret
+$1 = 2
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print i
+$2 = 14
++print s
+$3 = 0x55555555801c "ft_printfd,%%"
++print s[i]
+$4 = 40 '('
++exit

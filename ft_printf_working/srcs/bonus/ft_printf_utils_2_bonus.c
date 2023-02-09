@@ -12,10 +12,8 @@
 
 #include "ft_printf_bonus.h"
 
-/*	*** ft_dec_to_hex_upper_fd (42 decimal to hexidecimal uppercase fd) ***
+/*	*** ft_dec_to_hex_upper_buf (42 decimal to hexidecimal uppercase buf) ***
  *
- *	Takes an integer 'n' and writes its hexadecimal representation to
- *	file descriptor.
  */
 
 int	ft_dec_to_hex_upper_buf(unsigned int n, t_flags *seq_info)
@@ -38,10 +36,8 @@ int	ft_dec_to_hex_upper_buf(unsigned int n, t_flags *seq_info)
 	return (0);
 }
 
-/*	*** ft_dec_to_hex_lower_fd (42 decimal to hexidecimal lowercase fd) ***
+/*	*** ft_dec_to_hex_lower_buf (42 decimal to hexidecimal lowercase buf) ***
  *
- *	Takes an integer 'n' and writes its hexadecimal representation to
- *	file descriptor.
  */
 
 int	ft_dec_to_hex_lower_buf(unsigned int n, t_flags *seq_info)
@@ -64,12 +60,8 @@ int	ft_dec_to_hex_lower_buf(unsigned int n, t_flags *seq_info)
 	return (0);
 }
 
-/*	*** ft_p_to_hex_fd (42 pointer to hexidecimal file d) ***
+/*	*** ft_p_to_hex_buf (42 pointer to hexidecimal to buffer) ***
  *
- *	Takes a void pointer, casts it to an unsigned long long and
- *	recursively calls ft_p_to_hex_fd to print address as hexidecimal to
- *	file descriptor.
- *	Returns nothing.
  */
 
 int	ft_p_to_hex_buf(void *p, t_flags *seq_info)
@@ -92,9 +84,8 @@ int	ft_p_to_hex_buf(void *p, t_flags *seq_info)
 	return (0);
 }
 
-/*	*** ft_putunbr_fd (42 put unsigned number file descriptor) ***
+/*	*** ft_putunbr_buf (42 put unsigned number to buffer) ***
  *
- *	Takes a number and prints as an unsigned integer to file descriptor.
  */
 
 int	ft_putunbr_buf(unsigned int n, t_flags *seq_info)

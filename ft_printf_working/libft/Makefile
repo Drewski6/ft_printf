@@ -6,7 +6,7 @@
 #    By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 14:36:56 by dpentlan          #+#    #+#              #
-#    Updated: 2023/02/08 11:48:27 by dpentlan         ###   ########.fr        #
+#    Updated: 2023/02/05 13:06:28 by dpentlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,7 @@ GNL_OBJS_DIR = objs/gnl/
 
 # ***** Compiler and Archiver *****
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 CC = cc
 

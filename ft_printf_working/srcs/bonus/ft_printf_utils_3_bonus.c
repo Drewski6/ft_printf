@@ -14,7 +14,6 @@
 
 /*	*** ft_iswsp (42 is whitespace or percent) ***
  *
- *	Determines if a character is a whitespace character (or %).
  */
 
 int	ft_iswsp(const char *c)
@@ -63,33 +62,17 @@ int	err_check(const char *seq_start)
 	return (seq_len);
 }
 
-/*	*** subsequence_parser (subsequence parser) ***
+/*	***  subseq_b_and_p (subsequence build and print) ***
  *
- *	Parses the subsequence (flags, precision, format specifiers) after a % sign.
- *	Returns -1 on error and 'seq_len' on success.
+ *
  */
 
-int	subsequence_parser(const char *seq_start, va_list parg,
-	int fd, int *print_count)
+int	subseq_b_and_p(t_flags *seq_info, va_list parg, int fd, int *print_count)
 {
-	int		seq_len;
-	t_flags	*seq_info;
 	int		ssb_ret;
 	int		ssp_ret;
 
-	seq_len = err_check(seq_start);
-	if (seq_len < 0)
-		return (-1);
-	seq_info = t_flags_init();
-	if (seq_info == 0)
-		return (-1);
-	if (t_flags_fill(seq_info, seq_start, seq_len))
-		return (-1);
-	seq_info->buf = (char *)ft_calloc(10 * sizeof(char), 1);
-	if (!seq_info->buf)
-		return (-1);
 	ssb_ret = subseq_build(seq_info, parg);
-	//t_flags_inspect(seq_info);
 	if (ssb_ret == -1)
 	{
 		free(seq_info->buf);
@@ -103,6 +86,34 @@ int	subsequence_parser(const char *seq_start, va_list parg,
 		free(seq_info);
 		return (-1);
 	}
+	return (0);
+}
+
+/*	*** subseq_parser (subsequence parser) ***
+ *
+ *	Parses the subsequence (flags, precision, format specifiers) after a % sign.
+ *	Returns -1 on error and 'seq_len' on success.
+ */
+
+int	subseq_parser(const char *seq_start, va_list parg,
+	int fd, int *print_count)
+{
+	int		seq_len;
+	t_flags	*seq_info;
+
+	seq_len = err_check(seq_start);
+	if (seq_len < 0)
+		return (-1);
+	seq_info = t_flags_init();
+	if (seq_info == 0)
+		return (-1);
+	if (t_flags_fill(seq_info, seq_start, seq_len))
+		return (-1);
+	seq_info->buf = (char *)ft_calloc(10 * sizeof(char), 1);
+	if (!seq_info->buf)
+		return (-1);
+	if (subseq_b_and_p(seq_info, parg, fd, print_count))
+		return (-1);
 	free(seq_info->buf);
 	free(seq_info);
 	return (seq_len);

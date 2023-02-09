@@ -12,170 +12,13 @@
 
 #include "ft_printf_bonus.h"
 
-/*	*** decimal_precision () ***
+/*	*** subseq_build (subsequence build) ***
  *
- *
- */
-
-int	decimal_precision(t_flags *seq_info)
-{
-	int	padding;
-
-	padding = 0;
-	padding = seq_info->precision - seq_info->buf_len;
-	if (*(seq_info->buf) == '-')
-		padding++;
-	while (padding > 0)
-	{
-		if (*(seq_info->buf) == '-')
-		{
-			if (write_to_buf(seq_info, "0", 1, 1) <= 0)
-				return (-1);
-		}
-		else
-		{
-			if (write_to_buf(seq_info, "0", 1, 0) <= 0)
-				return (-1);
-		}
-		padding--;
-	}
-	return (0);
-}
-
-/*	*** subseq_decimal () ***
- *
- *
- */
-
-int	subseq_decimal(t_flags *seq_info)
-{
-	char	*new_buf;
-
-	new_buf = 0;
-	if (seq_info->decimal_flag == 1 && seq_info->fs == 's' &&
-		(seq_info->buf_len > seq_info->precision))
-	{
-		new_buf = (char *)ft_calloc(seq_info->precision + 1, sizeof(char));
-		if (!new_buf)
-			return (-1);
-		if (!ft_memcpy(new_buf, seq_info->buf, seq_info->precision))
-			return (-1);
-		free(seq_info->buf);
-		seq_info->buf_len = seq_info->precision;
-		seq_info->buf = new_buf;
-	}
-	else if (seq_info->fs != 's')
-	{
-		if (decimal_precision(seq_info) < 0)
-			return (-1);
-	}
-	return (seq_info->precision);
-}
-
-/*	*** subseq_pound () ***
- *
- *
- */
-
-int	subseq_pound(t_flags *seq_info)
-{
-	if (!ft_memcmp(seq_info->buf, "0", 2))
-		return (0);
-	if (seq_info->fs == 'x')
-	{
-		if (write_to_buf(seq_info, "0x", 2, 0) <= 0)
-			return (-1);
-	}
-	else if (seq_info->fs == 'X')
-	{
-		if (write_to_buf(seq_info, "0X", 2, 0) <= 0)
-			return (-1);
-	}
-	else if (seq_info->fs == 'd')
-		return (0);
-	else
-		return (-1);
-	return (0);
-}
-
-/*	*** subseq_sign () ***
- *
- *
- */
-
-int	subseq_sign(t_flags *seq_info)
-{
-	if (seq_info->fs == 'd' || seq_info->fs == 'i')
-	{
-		if (seq_info->space_flag && seq_info->plus_flag)
-			return (-1);
-		else if (seq_info->space_flag == 1)
-		{
-			if (*(seq_info->buf) == '-')
-				return (0);
-			else
-			{
-				if (write_to_buf(seq_info, " ", 1, 0) <= 0)
-					return (-1);
-			}
-		}
-		else if (seq_info->plus_flag == 1)
-		{
-			if (*(seq_info->buf) == '-')
-				return (0);
-			else
-			{
-				if (write_to_buf(seq_info, "+", 1, 0) <= 0)
-					return (-1);
-			}
-		}
-	}
-	return (0);
-}
-
-/*	*** subseq_padding (subsequence padding) ***
- *
- *
- */
-
-int	subseq_padding(t_flags *seq_info)
-{
-	int	padding;
-
-	padding = seq_info->width - seq_info->buf_len;
-	while (padding > 0)
-	{
-		if (seq_info->zero_flag == 0)
-		{
-			if (write_to_buf(seq_info, " ", 1, seq_info->minus_flag) <= 0)
-				return (-1);
-		}
-		else
-		{
-			if (*(seq_info->buf) == '-')
-			{
-				if (write_to_buf(seq_info, "0", 1, seq_info->minus_flag + 1) <= 0)
-					return (-1);
-			}
-			else
-			{
-				if (write_to_buf(seq_info, "0", 1, seq_info->minus_flag) <= 0)
-					return (-1);
-			}
-		}
-		padding--;
-	}
-	return (0);
-}
-
-/*	*** subseq_build (make print) ***
- *
- *	Looks through the t_flags struct and starts printing subsequence.
  */
 
 int	subseq_build(t_flags *seq_info, va_list parg)
 {
-	if (format_switch_buf(seq_info, parg))
+	if (format_switch_buf_1(seq_info, parg))
 		return (-1);
 	if (seq_info->decimal_flag == 1)
 	{
@@ -187,8 +30,11 @@ int	subseq_build(t_flags *seq_info, va_list parg)
 		if (subseq_pound(seq_info))
 			return (-1);
 	}
-	if (subseq_sign(seq_info))
-		return (-1);
+	if (seq_info->fs == 'd' || seq_info->fs == 'i')
+	{
+		if (subseq_sign(seq_info))
+			return (-1);
+	}
 	if (seq_info->width > 0)
 	{
 		if (subseq_padding(seq_info))
@@ -199,7 +45,6 @@ int	subseq_build(t_flags *seq_info, va_list parg)
 
 /*	*** subseq_print (subsequence print) ***
  *
- *	Prints out the buffer.
  */
 
 int	subseq_print(t_flags *seq_info, int fd, int *print_count)
@@ -214,7 +59,8 @@ int	subseq_print(t_flags *seq_info, int fd, int *print_count)
  *
  */
 
-char	*ft_memjoin(char const *s1, size_t s1_len, char const *s2, size_t s2_len)
+char	*ft_memjoin(char const *s1, size_t s1_len, char const *s2,
+	size_t s2_len)
 {
 	char	*ptr;
 
@@ -229,6 +75,37 @@ char	*ft_memjoin(char const *s1, size_t s1_len, char const *s2, size_t s2_len)
 	return (ptr);
 }
 
+/*	*** str_insert (string insert) ***
+ *
+ *
+ */
+
+char	*str_insert(t_flags *seq_info, char *new_str, size_t len, int wi)
+{
+	char	*new_buf;
+	char	*new_buf_beg;
+	char	*new_buf_end;
+
+	if (wi < 0)
+		new_buf = ft_memjoin(seq_info->buf, seq_info->buf_len, new_str, len);
+	else
+	{
+		new_buf_beg = ft_substr(seq_info->buf, 0, wi);
+		if (!new_buf_beg)
+			return (0);
+		new_buf_end = ft_memjoin(new_str, len, &(seq_info->buf[wi]),
+				seq_info->buf_len - wi);
+		if (!new_buf_end)
+			return (0);
+		new_buf = ft_memjoin(new_buf_beg, wi, new_buf_end,
+				len + seq_info->buf_len - wi);
+		free(new_buf_beg);
+		free(new_buf_end);
+	}
+	if (new_buf == 0)
+		return (0);
+	return (new_buf);
+}
 
 /*	*** write_to_buf (write to print buffer) ***
  *
@@ -240,10 +117,8 @@ char	*ft_memjoin(char const *s1, size_t s1_len, char const *s2, size_t s2_len)
 int	write_to_buf(t_flags *seq_info, char *str, size_t len, int wi)
 {
 	char	*new_buf;
-	char	*new_buf_beg;
-	char	*new_buf_end;
 	char	*new_str;
-	
+
 	if (*str == 0 && len == 1)
 	{
 		*(seq_info->buf) = 0;
@@ -254,21 +129,8 @@ int	write_to_buf(t_flags *seq_info, char *str, size_t len, int wi)
 	if (!new_str)
 		return (-1);
 	new_str[len] = 0;
-	if (wi < 0)
-		new_buf = ft_memjoin(seq_info->buf, seq_info->buf_len, new_str, len);
-	else
-	{
-		new_buf_beg = ft_substr(seq_info->buf, 0, wi);
-		if (!new_buf_beg)
-			return (-1);
-		new_buf_end = ft_memjoin(new_str, len, &(seq_info->buf[wi]), seq_info->buf_len - wi);
-		if (!new_buf_end)
-			return (-1);
-		new_buf = ft_memjoin(new_buf_beg, wi, new_buf_end, len + seq_info->buf_len - wi);
-		free(new_buf_beg);
-		free(new_buf_end);
-	}
-	if (new_buf == 0)
+	new_buf = str_insert(seq_info, new_str, len, wi);
+	if (!new_buf)
 		return (-1);
 	free(new_str);
 	free(seq_info->buf);

@@ -14,8 +14,6 @@
 
 /*  *** ft_putchar_buf (42 put character to buffer) ***
  *
- *  Outputs the character 'c' to file descriptor.
- *  Returns nothing.
  */
 
 int	ft_putchar_buf(char c, t_flags *seq_info)
@@ -37,8 +35,6 @@ int	ft_putchar_buf(char c, t_flags *seq_info)
 
 /*  *** ft_putstr_buf (42 put string to buffer) ***
  *
- *  Outputs the string 's' to the given file descriptor.
- *  Returns nothing.
  */
 
 int	ft_putstr_buf(char *s, t_flags *seq_info)
@@ -58,10 +54,27 @@ int	ft_putstr_buf(char *s, t_flags *seq_info)
 	return (0);
 }
 
-/*  *** ft_putnbr_fd_p (42 put number file descriptor) ***
+/*	*** ft_putnbr_buf_helper (42 put number to buffer helper) ***
  *
- *  Outputs the integer 'n' to the given file descriptor.
- *  Returns nothing.
+ */
+
+int	ft_putnbr_buf_helper(long nbl, t_flags *seq_info)
+{
+	if (nbl < 0)
+	{
+		if (ft_putnbr_buf((nbl / 10) * -1, seq_info))
+			return (-1);
+	}
+	else
+	{
+		if (ft_putnbr_buf(nbl / 10, seq_info))
+			return (-1);
+	}
+	return (0);
+}
+
+/*  *** ft_putnbr_buf (42 put number buffer) ***
+ *
  */
 
 int	ft_putnbr_buf(int n, t_flags *seq_info)
@@ -77,16 +90,8 @@ int	ft_putnbr_buf(int n, t_flags *seq_info)
 	}
 	if (nbl / 10 != 0)
 	{
-		if (nbl < 0)
-		{
-			if (ft_putnbr_buf((nbl / 10) * -1, seq_info))
-				return (-1);
-		}
-		else
-		{
-			if (ft_putnbr_buf(nbl / 10, seq_info))
-				return (-1);
-		}
+		if (ft_putnbr_buf_helper(nbl, seq_info))
+			return (-1);
 	}
 	if (nbl < 0)
 		c = (((nbl % 10) * -1) + '0');
