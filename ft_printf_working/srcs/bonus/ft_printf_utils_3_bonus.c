@@ -42,6 +42,8 @@ int	err_check(const char *seq_start)
 
 	seq_len = 0;
 	i = 0;
+	if (seq_start[i] == ' ')
+		seq_len++;
 	while (!ft_iswsp(&seq_start[seq_len]) && seq_start[seq_len] != '\0')
 	{
 		seq_len++;

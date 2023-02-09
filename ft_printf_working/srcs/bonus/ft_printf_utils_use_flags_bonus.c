@@ -12,19 +12,6 @@
 
 #include "ft_printf_bonus.h"
 
-/*	*** subseq_zero () ***
- *
- *
- */
-
-/*
-int	subseq_zero()
-{
-
-	return (0);
-}
-*/
-
 /*	*** subseq_decimal () ***
  *
  *
@@ -77,18 +64,40 @@ int	subseq_space()
 }
 */
 
-/*	*** subseq_plus () ***
+/*	*** subseq_sign () ***
  *
  *
  */
 
-/*
-int	subseq_plus()
+int	subseq_sign(t_flags *seq_info)
 {
-
+	if (seq_info->fs == 'd' || seq_info->fs == 'i')
+	{
+		if (seq_info->space_flag && seq_info->plus_flag)
+			return (-1);
+		else if (seq_info->space_flag == 1)
+		{
+			if (*(seq_info->buf) == '-')
+				return (0);
+			else
+			{
+				if (write_to_buf(seq_info, " ", 1, 0) <= 0)
+					return (-1);
+			}
+		}
+		else if (seq_info->plus_flag == 1)
+		{
+			if (*(seq_info->buf) == '-')
+				return (0);
+			else
+			{
+				if (write_to_buf(seq_info, "+", 1, 0) <= 0)
+					return (-1);
+			}
+		}
+	}
 	return (0);
 }
-*/
 
 /*	*** subseq_build (make print) ***
  *
@@ -107,6 +116,8 @@ int	subseq_build(t_flags *seq_info, va_list parg)
 		if (subseq_pound(seq_info))
 			return (-1);
 	}
+	if (subseq_sign(seq_info))
+		return (-1);
 	if (seq_info->width > 0)
 	{
 		padding = seq_info->width - seq_info->buf_len;
