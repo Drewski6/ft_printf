@@ -45,7 +45,7 @@ int	subseq_decimal()
 
 int	subseq_pound(t_flags *seq_info)
 {
-	if (ft_memcmp(seq_info->buf, "0", 1))
+	if (!ft_memcmp(seq_info->buf, "0", 2))
 		return (0);
 	if (seq_info->fs == 'x')
 	{

@@ -3198,3 +3198,185 @@ The program is not being run.
 +c
 The program is not being run.
 +exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=41653
+Remote debugging using | /usr/bin/vgdb --pid=41653
+relaying data between gdb and process 41653
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++break main
+Breakpoint 1 at 0x1091f1: file ft_printf_small_playground.c, line 9.
++c
+Continuing.
+
+Breakpoint 1, main () at ft_printf_small_playground.c:9
++n
+++refresh
++break ft_memcmp
+Breakpoint 2 at 0x10ac8d: file libft/srcs/mandatory/ft_memcmp.c, line 26.
++c
+Continuing.
+
+Breakpoint 2, ft_memcmp (s1=0x4a9d590, s2=0x10c105, n=1) at libft/srcs/mandatory/ft_memcmp.c:26
++print s1
+$1 = (const void *) 0x4a9d590
++cat s2
+Undefined catch command: "s2".  Try "help catch".
++print s2
+$2 = (const void *) 0x10c105
++print *s1
+Attempt to dereference a generic pointer.
++print (char *)s1
+$3 = 0x4a9d590 "0"
++print (char *)s2
+$4 = 0x10c105 "0"
++print n
+$5 = 1
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subseq_pound (seq_info=0x4a9d480) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:48
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subseq_build (seq_info=0x4a9d480, parg=0x1ffefff970) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:107
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++cexit
+Undefined command: "cexit".  Try "help".
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=44178
+Remote debugging using | /usr/bin/vgdb --pid=44178
+vgdb error: no FIFO found matching pid 44178
+Remote communication error.  Target disconnected.: Connection reset by peer.
++target remote | /usr/bin/vgdb --pid=44176
+Remote debugging using | /usr/bin/vgdb --pid=44176
+relaying data between gdb and process 44176
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++break ft_memcmp
+Breakpoint 1 at 0x10ac8d: file libft/srcs/mandatory/ft_memcmp.c, line 26.
++c
+Continuing.
+
+Breakpoint 1, ft_memcmp (s1=0x4a9d590, s2=0x10c105, n=1) at libft/srcs/mandatory/ft_memcmp.c:26
++print i
+$1 = 8934374317830044416
++print n
+$2 = 1
++n
+++refresh
++n
+++refresh
++print i
+$3 = 0
++print n
+$4 = 1
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=44558
+Remote debugging using | /usr/bin/vgdb --pid=44558
+relaying data between gdb and process 44558
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++break ft_memcmp
+Breakpoint 1 at 0x10ac8d: file libft/srcs/mandatory/ft_memcmp.c, line 26.
++c
+Continuing.
+
+Breakpoint 1, ft_memcmp (s1=0x4a9d590, s2=0x10c105, n=2) at libft/srcs/mandatory/ft_memcmp.c:26
++print n
+$1 = 2
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print i
+$2 = 1
++n
+++refresh
++n
+++refresh
++print i
+$3 = 1
++pritn n
+Undefined command: "pritn".  Try "help".
++print n
+$4 = 2
++print (*((unsigned char *)s1 + i)
+A syntax error in expression, near `'.
++print (*((unsigned char *)s1 + i)
+A syntax error in expression, near `'.
++print (*((unsigned char *)s1 + i))
+$5 = 0 '\000'
++print (*((unsigned char *)s1 + i) = *((unsigned char *)s2 + i))
+$6 = 0 '\000'
++print (*((unsigned char *)s1 + i) - *((unsigned char *)s2 + i))
+$7 = 0
+Quit
+Quit
+Quit
++c
+Undefined command: "".  Try "help".
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++c
+The program is not being run.
++exit
