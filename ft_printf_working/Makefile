@@ -108,11 +108,8 @@ SLIB = ar rcs
 
 all: $(NAME)
 
-#$(NAME): $(OBJS)
-#	$(SLIB) $(NAME) -o $(OBJS)
-
-$(NAME): $(BONUS_OBJS) $(LIBFT_OBJS)
-	$(SLIB) $(NAME) -o $(BONUS_OBJS) $(LIBFT_OBJS)
+$(NAME): $(OBJS)
+	$(SLIB) $(NAME) -o $(OBJS)
 
 bonus: $(BONUS_OBJS) $(LIBFT_OBJS)
 	$(SLIB) $(NAME) -o $(BONUS_OBJS) $(LIBFT_OBJS)
