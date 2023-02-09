@@ -12,18 +12,65 @@
 
 #include "ft_printf_bonus.h"
 
+/*	*** decimal_precision () ***
+ *
+ *
+ */
+
+int	decimal_precision(t_flags *seq_info)
+{
+	int	padding;
+
+	padding = 0;
+	padding = seq_info->precision - seq_info->buf_len;
+	if (*(seq_info->buf) == '-')
+		padding++;
+	while (padding > 0)
+	{
+		if (*(seq_info->buf) == '-')
+		{
+			if (write_to_buf(seq_info, "0", 1, 1) <= 0)
+				return (-1);
+		}
+		else
+		{
+			if (write_to_buf(seq_info, "0", 1, 0) <= 0)
+				return (-1);
+		}
+		padding--;
+	}
+	return (0);
+}
+
 /*	*** subseq_decimal () ***
  *
  *
  */
 
-/*
-int	subseq_decimal()
+int	subseq_decimal(t_flags *seq_info)
 {
+	char	*new_buf;
 
-	return (0);
+	new_buf = 0;
+	if (seq_info->decimal_flag == 1 && seq_info->fs == 's' &&
+		(seq_info->buf_len > seq_info->precision))
+	{
+		new_buf = (char *)ft_calloc(seq_info->precision + 1, sizeof(char));
+		if (!new_buf)
+			return (-1);
+		if (!ft_memcpy(new_buf, seq_info->buf, seq_info->precision))
+			return (-1);
+		free(seq_info->buf);
+		seq_info->buf_len = seq_info->precision;
+		seq_info->buf = new_buf;
+	}
+	else if (seq_info->fs != 's')
+	{
+		if (decimal_precision(seq_info) < 0)
+			return (-1);
+	}
+	return (seq_info->precision);
 }
-*/
 
 /*	*** subseq_pound () ***
  *
@@ -50,19 +97,6 @@ int	subseq_pound(t_flags *seq_info)
 		return (-1);
 	return (0);
 }
-
-/*	*** subseq_space () ***
- *
- *
- */
-
-/*
-int	subseq_space()
-{
-
-	return (0);
-}
-*/
 
 /*	*** subseq_sign () ***
  *
@@ -99,6 +133,41 @@ int	subseq_sign(t_flags *seq_info)
 	return (0);
 }
 
+/*	*** subseq_padding (subsequence padding) ***
+ *
+ *
+ */
+
+int	subseq_padding(t_flags *seq_info)
+{
+	int	padding;
+
+	padding = seq_info->width - seq_info->buf_len;
+	while (padding > 0)
+	{
+		if (seq_info->zero_flag == 0)
+		{
+			if (write_to_buf(seq_info, " ", 1, seq_info->minus_flag) <= 0)
+				return (-1);
+		}
+		else
+		{
+			if (*(seq_info->buf) == '-')
+			{
+				if (write_to_buf(seq_info, "0", 1, seq_info->minus_flag + 1) <= 0)
+					return (-1);
+			}
+			else
+			{
+				if (write_to_buf(seq_info, "0", 1, seq_info->minus_flag) <= 0)
+					return (-1);
+			}
+		}
+		padding--;
+	}
+	return (0);
+}
+
 /*	*** subseq_build (make print) ***
  *
  *	Looks through the t_flags struct and starts printing subsequence.
@@ -106,11 +175,13 @@ int	subseq_sign(t_flags *seq_info)
 
 int	subseq_build(t_flags *seq_info, va_list parg)
 {
-	int	padding;
-
-	padding = 0;
 	if (format_switch_buf(seq_info, parg))
 		return (-1);
+	if (seq_info->decimal_flag == 1)
+	{
+		if (subseq_decimal(seq_info) < 0)
+			return (-1);
+	}
 	if (seq_info->pound_flag == 1)
 	{
 		if (subseq_pound(seq_info))
@@ -120,29 +191,8 @@ int	subseq_build(t_flags *seq_info, va_list parg)
 		return (-1);
 	if (seq_info->width > 0)
 	{
-		padding = seq_info->width - seq_info->buf_len;
-		while (padding > 0)
-		{
-			if (seq_info->zero_flag == 0)
-			{
-				if (write_to_buf(seq_info, " ", 1, seq_info->minus_flag) <= 0)
-					return (-1);
-			}
-			else
-			{
-				if (*(seq_info->buf) == '-')
-				{
-					if (write_to_buf(seq_info, "0", 1, seq_info->minus_flag + 1) <= 0)
-						return (-1);
-				}
-				else
-				{
-					if (write_to_buf(seq_info, "0", 1, seq_info->minus_flag) <= 0)
-						return (-1);
-				}
-			}
-			padding--;
-		}
+		if (subseq_padding(seq_info))
+			return (-1);
 	}
 	return (0);
 }
@@ -159,11 +209,9 @@ int	subseq_print(t_flags *seq_info, int fd, int *print_count)
 	return (0);
 }
 
-/*  *** ft_strjoin (42 string join) ***
+/*  *** ft_memjoin (42 memory join) ***
  *
- *  Takes two strings 's1' and 's2'.
- *  Returns a newly allocated memory space containing copies of 's1' memory
- *  space followed by 's2' memory space.
+ *
  */
 
 char	*ft_memjoin(char const *s1, size_t s1_len, char const *s2, size_t s2_len)

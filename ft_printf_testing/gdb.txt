@@ -3380,3 +3380,411 @@ The program is not being run.
 +c
 The program is not being run.
 +exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++start
+Temporary breakpoint 1 at 0x11f1: file ft_printf_small_playground.c, line 6.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/ft_printf_small_playground 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 1, main () at ft_printf_small_playground.c:6
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_printf (s=0x555555558049 "ft_printfs,%.5s") at srcs/bonus/ft_printf_bonus.c:110
++n
+++refresh
++n
+++refresh
++break subseq_decimal 
+Breakpoint 2 at 0x55555555675a: file srcs/bonus/ft_printf_utils_use_flags_bonus.c, line 24.
++c
+Continuing.
+
+Breakpoint 2, subseq_decimal (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:24
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print new_buf
+$1 = 0x55555555b6e0 ""
++print seq_info->precision
+$2 = 5
++print seq_info->buf_len
+$3 = 6
++n
+++refresh
++record
++target record-full
++n
+++refresh
++print seq_info->buf
+$4 = 0x55555555b720 "string"
++print new_buf
+$5 = 0x55555555b6e0 "strin"
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subseq_build (seq_info=0x55555555b6b0, parg=0x7fffffffd960) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:145
++n
+++refresh
++c
+Continuing.
+
+Breakpoint 2, subseq_decimal (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:24
++c
+Continuing.
+
+Breakpoint 2, subseq_decimal (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:24
++c
+Continuing.
+
+Breakpoint 2, subseq_decimal (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:24
++c
+Continuing.
+Please answer [y] or n.
+Please answer [y] or n.
+Please answer [y] or n.
+Please answer [y] or n.
+Process record: inferior program stopped.
+
+Program stopped.
+0x00007ffff7e66c9f in __GI__exit (status=status@entry=0) at ../sysdeps/unix/sysv/linux/_exit.c:30
++c
+Continuing.
+Please answer [y] or n.
+Please answer [y] or n.
+[Inferior 1 (process 69135) exited normally]
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++start
+Temporary breakpoint 1 at 0x11f1: file ft_printf_small_playground.c, line 6.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/ft_printf_small_playground 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 1, main () at ft_printf_small_playground.c:6
++n
+++refresh
++n
+++refresh
++n
+++refresh
++c
+Continuing.
+[Inferior 1 (process 74253) exited normally]
++start
+Temporary breakpoint 2 at 0x5555555551f1: file ft_printf_small_playground.c, line 6.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/ft_printf_small_playground 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 2, main () at ft_printf_small_playground.c:6
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_printf (s=0x555555558047 "ft_pritnf11: %.2d ") at srcs/bonus/ft_printf_bonus.c:110
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subsequence_parser (seq_start=0x555555558055 ".2d ", parg=0x7fffffffd960, fd=1, print_count=0x7fffffffd94c) at srcs/bonus/ft_printf_utils_3_bonus.c:80
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subseq_build (seq_info=0x55555555b6b0, parg=0x7fffffffd960) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:147
++call t_flags_inspect(seq_info)
++n
+++refresh
++n
+++refresh
++s
+subseq_decimal (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:24
++n
+++refresh
++n
+++refresh
++call t_flags_inspect(seq_info)
++call t_flags_inspect(seq_info)
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subseq_build (seq_info=0x55555555b6b0, parg=0x7fffffffd960) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:151
++n
+++refresh
++n
+++refresh
++call t_flags_inspect(seq_info)
++n
+++refresh
++n
+++refresh
++s
+subseq_padding (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:114
++n
+++refresh
++print padding
+$1 = 0
++n
+++refresh
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++break decimal_precision 
+Breakpoint 1 at 0x2750: file srcs/bonus/ft_printf_utils_use_flags_bonus.c, line 24.
++c
+The program is not being run.
++start
+Temporary breakpoint 2 at 0x11f1: file ft_printf_small_playground.c, line 6.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/ft_printf_small_playground 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 2, main () at ft_printf_small_playground.c:6
++info break
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000555555556750 in decimal_precision 
+                                                   at srcs/bonus/ft_printf_utils_use_flags_bonus.c:24
++c
+Continuing.
+
+Breakpoint 1, decimal_precision (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:24
++call t_flags_inspect(seq_info)
++break subseq_decimal 
+Breakpoint 3 at 0x5555555567d0: file srcs/bonus/ft_printf_utils_use_flags_bonus.c, line 46.
++c
+Continuing.
+
+Breakpoint 3, subseq_decimal (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:46
++call t_flags_inspect(seq_info)
++n
+++refresh
++n
+++refresh
++call t_flags_inspect(seq_info)
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++break subseq_decimal 
+Breakpoint 1 at 0x27d0: file srcs/bonus/ft_printf_utils_use_flags_bonus.c, line 46.
++n
+++refresh
+The program is not being run.
++start
+Temporary breakpoint 2 at 0x11f1: file ft_printf_small_playground.c, line 6.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/ft_printf_small_playground 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 2, main () at ft_printf_small_playground.c:6
++c
+Continuing.
+
+Breakpoint 1, subseq_decimal (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:46
++call t_flags_inspect(seq_info)
++c
+Continuing.
+
+Breakpoint 1, subseq_decimal (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:46
++call t_flags_inspect(seq_info)
++call t_flags_inspect(seq_info)
++n
+++refresh
++n
+++refresh
++s
+decimal_precision (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:24
++n
+++refresh
++n
+++refresh
++print padding
+$1 = 4
++n
+++refresh
++n
+++refresh
++exit
