@@ -45,6 +45,8 @@ int	subseq_decimal()
 
 int	subseq_pound(t_flags *seq_info)
 {
+	if (ft_memcmp(seq_info->buf, "0", 1))
+		return (0);
 	if (seq_info->fs == 'x')
 	{
 		if (write_to_buf(seq_info, "0x", 2, 0) <= 0)
@@ -130,6 +132,29 @@ int	subseq_print(t_flags *seq_info, int fd, int *print_count)
 	return (0);
 }
 
+/*  *** ft_strjoin (42 string join) ***
+ *
+ *  Takes two strings 's1' and 's2'.
+ *  Returns a newly allocated memory space containing copies of 's1' memory
+ *  space followed by 's2' memory space.
+ */
+
+char	*ft_memjoin(char const *s1, size_t s1_len, char const *s2, size_t s2_len)
+{
+	char	*ptr;
+
+	if (s1 == 0 || s2 == 0)
+		return (0);
+	ptr = (char *)malloc((s1_len + s2_len + 1) * sizeof(char));
+	if (ptr == 0)
+		return (0);
+	ft_bzero(ptr, (s1_len + s2_len + 1));
+	ft_memcpy(ptr, (char *)s1, s1_len);
+	ft_memcpy((ptr + s1_len), (char *)s2, s2_len);
+	return (ptr);
+}
+
+
 /*	*** write_to_buf (write to print buffer) ***
  *
  *	Rather than writing to a file descriptor, this write writes
@@ -144,7 +169,7 @@ int	write_to_buf(t_flags *seq_info, char *str, size_t len, int wi)
 	char	*new_buf_end;
 	char	*new_str;
 	
-	if (*str == 0)
+	if (*str == 0 && len == 1)
 	{
 		*(seq_info->buf) = 0;
 		seq_info->buf_len++;
@@ -155,16 +180,16 @@ int	write_to_buf(t_flags *seq_info, char *str, size_t len, int wi)
 		return (-1);
 	new_str[len] = 0;
 	if (wi < 0)
-		new_buf = ft_strjoin(seq_info->buf, new_str);
+		new_buf = ft_memjoin(seq_info->buf, seq_info->buf_len, new_str, len);
 	else
 	{
 		new_buf_beg = ft_substr(seq_info->buf, 0, wi);
 		if (!new_buf_beg)
 			return (-1);
-		new_buf_end = ft_strjoin(new_str, &(seq_info->buf[wi]));
+		new_buf_end = ft_memjoin(new_str, len, &(seq_info->buf[wi]), seq_info->buf_len - wi);
 		if (!new_buf_end)
 			return (-1);
-		new_buf = ft_strjoin(new_buf_beg, new_buf_end);
+		new_buf = ft_memjoin(new_buf_beg, wi, new_buf_end, len + seq_info->buf_len - wi);
 		free(new_buf_beg);
 		free(new_buf_end);
 	}

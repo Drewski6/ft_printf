@@ -52,5 +52,6 @@ int 	t_flags_fill(t_flags *seq_info, const char *seq_start, int seq_len);
 int		subseq_print(t_flags *seq_info, int fd, int *print_count);
 int		write_to_buf(t_flags *seq_info, char *str, size_t len, int wi);
 int		subseq_build(t_flags *seq_info, va_list parg);
+char	*ft_memjoin(char const *s1, size_t s1_len, char const *s2, size_t s2_len);
 
 #endif

@@ -53,7 +53,7 @@ int	ft_putstr_buf(char *s, t_flags *seq_info)
 		return (0);
 	}
 	str_len = ft_strlen(s);
-	if (write_to_buf(seq_info, s, str_len, -1) <= 0)
+	if (write_to_buf(seq_info, s, str_len, -1) < 0)
 		return (-1);
 	return (0);
 }
