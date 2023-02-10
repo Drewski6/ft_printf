@@ -76,23 +76,10 @@ int	err_check(const char *seq_start)
 
 int	subseq_b_and_p(t_flags *seq_info, va_list parg, int fd, int *print_count)
 {
-	int		ssb_ret;
-	int		ssp_ret;
-
-	ssb_ret = subseq_build(seq_info, parg);
-	if (ssb_ret == -1)
-	{
-		free(seq_info->buf);
-		free(seq_info);
+	if (subseq_build(seq_info, parg))
 		return (-1);
-	}
-	ssp_ret = subseq_print(seq_info, fd, print_count);
-	if (ssp_ret == -1)
-	{
-		free(seq_info->buf);
-		free(seq_info);
+	if (subseq_print(seq_info, fd, print_count))
 		return (-1);
-	}
 	return (0);
 }
 
@@ -125,7 +112,11 @@ int	subseq_parser(const char *seq_start, va_list parg,
 	if (!seq_info->buf)
 		return (-1);
 	if (subseq_b_and_p(seq_info, parg, fd, print_count))
+	{
+		free(seq_info->buf);
+		free(seq_info);
 		return (-1);
+	}
 	free(seq_info->buf);
 	free(seq_info);
 	return (seq_len);
