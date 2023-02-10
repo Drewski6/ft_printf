@@ -6,7 +6,7 @@
 #    By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 14:36:56 by dpentlan          #+#    #+#              #
-#    Updated: 2023/02/05 13:06:28 by dpentlan         ###   ########.fr        #
+#    Updated: 2023/02/10 14:50:30 by dpentlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,9 +122,9 @@ $(GNL_OBJS_DIR)%.o: $(GNL_SRCS_DIR)%.c
 	$(CC) $(CFLAGS) -c -I$(INCS_DIR) $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS) $(GNL_OBJS)
+	@rm -f $(OBJS) $(BONUS_OBJS) $(GNL_OBJS)
 
 fclean:	clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re:	fclean all

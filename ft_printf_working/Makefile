@@ -86,15 +86,18 @@ LIBFT_INCS_DIR = libft/includes/
 
 OBJS = $(patsubst %.c,$(OBJS_DIR)%.o,$(SRCS))
 
-OBJS_DIR = objs/mandatory/
-
 BONUS_OBJS = $(patsubst %.c,$(BONUS_OBJS_DIR)%.o,$(BONUS_SRCS))
-
-BONUS_OBJS_DIR = objs/bonus/
 
 LIBFT_OBJS = $(patsubst %.c,$(LIBFT_OBJS_DIR)%.o,$(LIBFT_SRCS))
 
-LIBFT_OBJS_DIR = libft/objs/mandatory/
+OBJS_DIR = ./
+BONUS_OBJS_DIR = ./
+LIBFT_OBJS_DIR = ./
+
+# removed these, because when uploading to git repo, these folders were not included and it caused issues.
+#OBJS_DIR = objs/mandatory/
+#BONUS_OBJS_DIR = objs/bonus/
+#LIBFT_OBJS_DIR = libft/objs/mandatory/
 
 # ***** Compiler and Archiver *****
 
@@ -124,11 +127,11 @@ $(LIBFT_OBJS_DIR)%.o: $(LIBFT_SRCS_DIR)%.c
 	$(CC) $(CFLAGS) -c -I$(LIBFT_INCS_DIR) $< -o $@
 
 clean:
-	make clean -C libft
-	rm -f $(OBJS) $(BONUS_OBJS) $(LIBFT_OBJS)
+	@make clean -C libft
+	@rm -f $(OBJS) $(BONUS_OBJS) $(LIBFT_OBJS)
 
 fclean:	clean
-	make fclean -C libft
-	rm -f $(NAME)
+	@make fclean -C libft
+	@rm -f $(NAME)
 
 re:	fclean all
