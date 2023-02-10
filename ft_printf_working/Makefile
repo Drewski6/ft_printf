@@ -90,9 +90,9 @@ BONUS_OBJS = $(patsubst %.c,$(BONUS_OBJS_DIR)%.o,$(BONUS_SRCS))
 
 LIBFT_OBJS = $(patsubst %.c,$(LIBFT_OBJS_DIR)%.o,$(LIBFT_SRCS))
 
-OBJS_DIR = ./
-BONUS_OBJS_DIR = ./
-LIBFT_OBJS_DIR = ./
+OBJS_DIR = objs/
+BONUS_OBJS_DIR = objs/
+LIBFT_OBJS_DIR = objs/
 
 # removed these, because when uploading to git repo, these folders were not included and it caused issues.
 #OBJS_DIR = objs/mandatory/
