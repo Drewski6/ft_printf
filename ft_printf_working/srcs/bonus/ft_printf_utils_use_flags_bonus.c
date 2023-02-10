@@ -152,11 +152,10 @@ int	write_to_buf(t_flags *seq_info, char *str, size_t len, int wi)
 	new_str = ft_strdup(str);
 	if (!new_str)
 		return (-1);
-	new_str[len] = 0;
 	new_buf = str_insert(seq_info, new_str, len, wi);
+	free(new_str);
 	if (!new_buf)
 		return (-1);
-	free(new_str);
 	free(seq_info->buf);
 	seq_info->buf = new_buf;
 	seq_info->buf_len += len;
