@@ -22,25 +22,29 @@
 
 int	decimal_precision(t_flags *seq_info)
 {
-	int	padding;
+	int		padding;
+	char	*buf_padding;
+	int		sign;
 
 	padding = 0;
 	padding = seq_info->precision - seq_info->buf_len;
+	sign = 0;
 	if (*(seq_info->buf) == '-')
 		padding++;
-	while (padding > 0)
+	if (*(seq_info->buf) == '-')
+		sign = 1;
+	if (padding > 0)
 	{
-		if (*(seq_info->buf) == '-')
+		buf_padding = (char *)ft_calloc((padding + 1), sizeof(char));
+		if (!buf_padding)
+			return (-1);
+		ft_bchar(buf_padding, '0', padding);
+		if (write_to_buf(seq_info, buf_padding, padding, sign) <= 0)
 		{
-			if (write_to_buf(seq_info, "0", 1, 1) <= 0)
-				return (-1);
+			free(buf_padding);
+			return (-1);
 		}
-		else
-		{
-			if (write_to_buf(seq_info, "0", 1, 0) <= 0)
-				return (-1);
-		}
-		padding--;
+		free(buf_padding);
 	}
 	return (0);
 }
@@ -154,26 +158,29 @@ int	subseq_sign(t_flags *seq_info)
 
 int	subseq_padding(t_flags *seq_info)
 {
-	int	padding;
-	int	offset;
+	int		padding;
+	int		offset;
+	char	*buf_padding;
 
 	offset = seq_info->minus_flag;
-	if (*(seq_info->buf) == '-')
+	if (*(seq_info->buf) == '-' && seq_info->zero_flag == 1)
 		offset++;
 	padding = seq_info->width - seq_info->buf_len;
-	while (padding > 0)
+	if (padding > 0)
 	{
+		buf_padding = (char *)ft_calloc((padding + 1), sizeof(char));
+		if (!buf_padding)
+			return (-1);
 		if (seq_info->zero_flag == 0)
-		{
-			if (write_to_buf(seq_info, " ", 1, seq_info->minus_flag) <= 0)
-				return (-1);
-		}
+			ft_bchar(buf_padding, ' ', padding);
 		else
+			ft_bchar(buf_padding, '0', padding);
+		if (write_to_buf(seq_info, buf_padding, padding, offset) <= 0)
 		{
-			if (write_to_buf(seq_info, "0", 1, offset) <= 0)
-				return (-1);
+			free(buf_padding);
+			return (-1);
 		}
-		padding--;
+		free(buf_padding);
 	}
 	return (0);
 }

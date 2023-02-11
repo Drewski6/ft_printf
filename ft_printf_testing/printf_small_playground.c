@@ -4,7 +4,7 @@
 int main (void)
 {
 
-	ft_printf("ft_printf,%1000.1000d\n", 1234);
+	printf("printf,%1000.1000d\n", 1234);
 
 	return (0);
 }

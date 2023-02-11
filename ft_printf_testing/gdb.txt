@@ -3891,3 +3891,184 @@ $3 = 0x55555555801c "ft_printfd,%%"
 +print s[i]
 $4 = 40 '('
 +exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++break subseq_padding 
+Breakpoint 1 at 0x28cb: file srcs/bonus/ft_printf_utils_subseq_helpers_bonus.c, line 161.
++c
+The program is not being run.
++run
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/ft_printf_small_playground 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, subseq_padding (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_subseq_helpers_bonus.c:161
++call t_flags_inspect(seq_info)
++n
+++refresh
++print offset
+$1 = -1
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=136368
+Remote debugging using | /usr/bin/vgdb --pid=136368
+relaying data between gdb and process 136368
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++break subseq_padding 
+Breakpoint 1 at 0x10a8f8: file srcs/bonus/ft_printf_utils_subseq_helpers_bonus.c, line 165.
++c
+Continuing.
+
+Breakpoint 1, subseq_padding (seq_info=0x4a9e480) at srcs/bonus/ft_printf_utils_subseq_helpers_bonus.c:165
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print padding
+$1 = 3
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+ft_bchar (str=0x4a9e770 "", c=32 ' ', len=3) at srcs/bonus/ft_printf_utils_3_bonus.c:26
++n
+++refresh
++print str
+$2 = 0x4a9e770 ""
++print c
+$3 = 32 ' '
++n
+++refresh
++n
+++refresh
++n
+++refresh
++print str
+$4 = 0x4a9e770 " "
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
+subseq_padding (seq_info=0x4a9e480) at srcs/bonus/ft_printf_utils_subseq_helpers_bonus.c:178
++print padding
+$5 = 3
++print buf_padding
+$6 = 0x4a9e770 "   "
++print padding
+$7 = 3
++print off_set
+No symbol "off_set" in current context.
++print offset
+$8 = -1
++s
+write_to_buf (seq_info=0x4a9e480, str=0x4a9e770 "   ", len=3, wi=-1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:146
++n
+++refresh
++s
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x000000000010b27d in ft_strlen ()
++exit
++define hook-next
+Reading symbols from ft_printf_small_playground...
++target remote | /usr/bin/vgdb --pid=137145
+Remote debugging using | /usr/bin/vgdb --pid=137145
+relaying data between gdb and process 137145
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+Reading symbols from /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug...
+0x00000000040202b0 in _start () from /lib64/ld-linux-x86-64.so.2
++start
+The "remote" target does not support "run".  Try "help target" or "continue".
++break subseq_padding 
+Breakpoint 1 at 0x10a8f8: file srcs/bonus/ft_printf_utils_subseq_helpers_bonus.c, line 165.
++run
+The "remote" target does not support "run".  Try "help target" or "continue".
++c
+Continuing.
+
+Breakpoint 1, subseq_padding (seq_info=0x4a9e480) at srcs/bonus/ft_printf_utils_subseq_helpers_bonus.c:165
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+subseq_padding (seq_info=0x4a9e480) at srcs/bonus/ft_printf_utils_subseq_helpers_bonus.c:178
++s
++c
+Continuing.
+[Inferior 1 (Remote target) exited normally]
++start
+Temporary breakpoint 2 at 0x1091f1: file ft_printf_small_playground.c, line 7.
+Starting program: /home/drew/Documents/ecole_42/ft_printf/ft_printf_testing/ft_printf_small_playground 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 2, main () at ft_printf_small_playground.c:7
++c
+Continuing.
+
+Breakpoint 1, subseq_padding (seq_info=0x55555555b6b0) at srcs/bonus/ft_printf_utils_subseq_helpers_bonus.c:165
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++n
+++refresh
++s
+write_to_buf (seq_info=0x55555555b6b0, str=0x55555555b700 "   ", len=3, wi=-1) at srcs/bonus/ft_printf_utils_use_flags_bonus.c:146
++n
+++refresh
++s
+ft_strdup (src=0x55555555b700 "   ") at srcs/ft_strdup.c:29
++n
+++refresh

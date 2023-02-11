@@ -31,77 +31,74 @@ BONUS_SRCS = ft_printf_bonus.c \
 
 BONUS_SRCS_DIR = srcs/bonus/
 
-LIBFT_SRCS = ft_isalpha.c \
-	ft_isdigit.c \
-	ft_isalnum.c \
-	ft_isascii.c \
-	ft_isprint.c \
-	ft_strlen.c \
-	ft_memset.c \
+LIBFT_SRCS = ft_atoi.c \
 	ft_bzero.c \
-	ft_memcpy.c \
-	ft_memmove.c \
-	ft_strlcpy.c \
-	ft_strlcat.c \
-	ft_toupper.c \
-	ft_tolower.c \
-	ft_strchr.c \
-	ft_strrchr.c \
-	ft_strncmp.c \
+	ft_calloc.c \
+	ft_isalnum.c \
+	ft_isalpha.c \
+	ft_isascii.c \
+	ft_isdigit.c \
+	ft_isprint.c \
+	ft_itoa.c \
+	ft_lstadd_back.c \
+	ft_lstadd_front.c \
+	ft_lstclear.c \
+	ft_lstdelone.c \
+	ft_lstiter.c \
+	ft_lstlast.c \
+	ft_lstmap.c \
+	ft_lstnew.c \
+	ft_lstsize.c \
 	ft_memchr.c \
 	ft_memcmp.c \
-	ft_strnstr.c \
-	ft_atoi.c \
-	ft_calloc.c \
-	ft_strdup.c \
-	ft_substr.c \
-	ft_strjoin.c \
-	ft_strtrim.c \
-	ft_split.c \
-	ft_itoa.c \
-	ft_strmapi.c \
-	ft_striteri.c \
+	ft_memcpy.c \
+	ft_memmove.c \
+	ft_memset.c \
 	ft_putchar_fd.c \
-	ft_putstr_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr_fd.c
-
-LIBFT_SRCS_DIR = libft/srcs/mandatory/
+	ft_putnbr_fd.c \
+	ft_putstr_fd.c \
+	ft_split.c \
+	ft_strchr.c \
+	ft_strdup.c \
+	ft_striteri.c \
+	ft_strjoin.c \
+	ft_strlcat.c \
+	ft_strlcpy.c \
+	ft_strlen.c \
+	ft_strmapi.c \
+	ft_strncmp.c \
+	ft_strnstr.c \
+	ft_strrchr.c \
+	ft_strtrim.c \
+	ft_substr.c \
+	ft_tolower.c \
+	ft_toupper.c \
+	get_next_line_bonus.c \
 
 # ***** Includes *****
 
 INCS = ft_printf.h
-
-INCS_DIR = includes/mandatory/
-
 BONUS_INCS = ft_printf_bonus.h
-
-BONUS_INCS_DIR = includes/bonus/
-
 LIBFT_INCS = libft.h
 
+INCS_DIR = includes/mandatory/
+BONUS_INCS_DIR = includes/bonus/
 LIBFT_INCS_DIR = libft/includes/
 
 # ***** Objects *****
 
 OBJS = $(patsubst %.c,$(OBJS_DIR)%.o,$(SRCS))
-
 BONUS_OBJS = $(patsubst %.c,$(BONUS_OBJS_DIR)%.o,$(BONUS_SRCS))
-
 LIBFT_OBJS = $(patsubst %.c,$(LIBFT_OBJS_DIR)%.o,$(LIBFT_SRCS))
 
-OBJS_DIR = objs/
-BONUS_OBJS_DIR = objs/
-LIBFT_OBJS_DIR = objs/
-
-# removed these, because when uploading to git repo, these folders were not included and it caused issues.
-#OBJS_DIR = objs/mandatory/
-#BONUS_OBJS_DIR = objs/bonus/
-#LIBFT_OBJS_DIR = libft/objs/mandatory/
+OBJS_DIR = objs/mandatory/
+BONUS_OBJS_DIR = objs/bonus/
+LIBFT_OBJS_DIR = libft/objs/
 
 # ***** Compiler and Archiver *****
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 CC = cc
 
@@ -114,24 +111,24 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(SLIB) $(NAME) -o $(OBJS)
 
-bonus: $(BONUS_OBJS) $(LIBFT_OBJS)
+bonus: $(BONUS_OBJS)
+	@make -C libft --silent
 	$(SLIB) $(NAME) -o $(BONUS_OBJS) $(LIBFT_OBJS)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
+	@mkdir -p $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c -I$(INCS_DIR) $< -o $@
 
 $(BONUS_OBJS_DIR)%.o: $(BONUS_SRCS_DIR)%.c
+	@mkdir -p $(BONUS_OBJS_DIR)
 	$(CC) $(CFLAGS) -c -I$(BONUS_INCS_DIR) $< -o $@
 
-$(LIBFT_OBJS_DIR)%.o: $(LIBFT_SRCS_DIR)%.c
-	$(CC) $(CFLAGS) -c -I$(LIBFT_INCS_DIR) $< -o $@
-
 clean:
-	@make clean -C libft
+	@make -C libft clean --silent
 	@rm -f $(OBJS) $(BONUS_OBJS) $(LIBFT_OBJS)
 
 fclean:	clean
-	@make fclean -C libft
+	@make -C libft fclean --silent
 	@rm -f $(NAME)
 
 re:	fclean all

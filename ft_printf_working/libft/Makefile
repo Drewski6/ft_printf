@@ -6,7 +6,7 @@
 #    By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 14:36:56 by dpentlan          #+#    #+#              #
-#    Updated: 2023/02/10 14:50:30 by dpentlan         ###   ########.fr        #
+#    Updated: 2023/02/11 14:46:26 by dpentlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,11 +63,9 @@ BONUS_SRCS =	ft_lstnew.c \
 
 GNL_SRCS = get_next_line_bonus.c \
 
-SRCS_DIR = srcs/mandatory/
-
-BONUS_SRCS_DIR = srcs/bonus/
-
-GNL_SRCS_DIR = srcs/gnl/
+SRCS_DIR = srcs/
+BONUS_SRCS_DIR = srcs/
+GNL_SRCS_DIR = srcs/
 
 # ***** Includes *****
 
@@ -77,27 +75,21 @@ INCS_DIR = includes/
 
 # ***** Objects *****
 
+ALL_OBJS = $(OBJS) $(BONUS_OBJS) $(GNL_OBJS)
+
 OBJS = $(patsubst %.c,$(OBJS_DIR)%.o,$(SRCS))
-
 BONUS_OBJS = $(patsubst %.c,$(BONUS_OBJS_DIR)%.o,$(BONUS_SRCS))
-
 GNL_OBJS = $(patsubst %.c,$(GNL_OBJS_DIR)%.o,$(GNL_SRCS))
 
-OBJS_DIR = objs/mandatory/
-
-BONUS_OBJS_DIR = objs/bonus/
-
-GNL_OBJS_DIR = objs/gnl/
+OBJS_DIR = objs/
+BONUS_OBJS_DIR = objs/
+GNL_OBJS_DIR = objs/
 
 # ***** Compiler and Archiver *****
 
 CFLAGS = -Wall -Wextra -Werror
-
 CC = cc
-
 SLIB = ar rcs
-
-ALL_OBJS = $(OBJS) $(BONUS_OBJS) $(GNL_OBJS)
 
 # ***** Build *****
 
@@ -113,18 +105,21 @@ bonus: $(OBJS) $(BONUS_OBJS)
 	$(SLIB) $(NAME) -o $(OBJS) $(BONUS_OBJS)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
+	@mkdir -p $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c -I$(INCS_DIR) $< -o $@
 
 $(BONUS_OBJS_DIR)%.o: $(BONUS_SRCS_DIR)%.c
+	@mkdir -p $(BONUS_OBJS_DIR)
 	$(CC) $(CFLAGS) -c -I$(INCS_DIR) $< -o $@
 
 $(GNL_OBJS_DIR)%.o: $(GNL_SRCS_DIR)%.c
+	@mkdir -p $(GNL_OBJS_DIR)
 	$(CC) $(CFLAGS) -c -I$(INCS_DIR) $< -o $@
 
 clean:
-	@rm -f $(OBJS) $(BONUS_OBJS) $(GNL_OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS) $(GNL_OBJS)
 
 fclean:	clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re:	fclean all

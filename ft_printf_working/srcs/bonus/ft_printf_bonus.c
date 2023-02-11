@@ -72,6 +72,32 @@ int	percent_handler(char *s, va_list parg, int fd, int *print_count)
 	return (i);
 }
 
+/*	*** percent_check (percent check) ***
+ *
+ *	Checks string for percent signs. If none are found, printf not needed.
+ *	Will do ft_putstr_fd instead.
+ *	Takes a string 's' and a file descriptor 'fd'.
+ *	Returns number of bytes printed to file descriptor 'fd'.
+ */
+
+int	percent_check(const char *s, int fd)
+{
+	size_t	i;
+	size_t	s_len;
+
+	i = 0;
+	s_len = 0;
+	s_len = ft_strlen(s);
+	while (s[i] != '%' && s[i])
+		i++;
+	if (i == s_len)
+	{
+		ft_putstr_fd((char *)s, fd);
+		return (i);
+	}
+	return (0);
+}
+
 /*  *** ft_printf (42 print format) ***
  *
  *	42 project for re-creating printf. 
@@ -82,9 +108,16 @@ int	percent_handler(char *s, va_list parg, int fd, int *print_count)
  *		- 0 . # [SPACE] +
  *	Takes a string and uses variadic macros to take unlimited format specifiers.
  *	Returns formatted string printed to standard out.
- *	NOTE: to change file descriptor output from stdout to any fd, add int fd
- *	to definition and replace third parameter in percent_handler to fd, and 
- *	change write(1, &s[i], 1) to write(fd, &s[i], 1)
+ *
+ *	NOTE: to change file descriptor output from stdout to any fd...
+ *	change	int	ft_printf(const char *s, ...)
+ *		to	int	ft_fprintf(int fd, const char *s, ...)
+ *	change	percent_check(s, 1)
+ *		to	percent_check(s, fd)
+ *	change	percent_handler((char *)&s[i + 1], parg, 1, &print_count)
+ *		to	percent_handler((char *)&s[i + 1], parg, fd, &print_count)
+ *	change	write(1, &s[i], 1) 
+ *		to	write(fd, &s[i], 1)
  */
 
 int	ft_printf(const char *s, ...)
@@ -96,6 +129,7 @@ int	ft_printf(const char *s, ...)
 
 	i = 0;
 	print_count = 0;
+	i += percent_check(s, 1);
 	va_start(parg, s);
 	while (s[i])
 	{

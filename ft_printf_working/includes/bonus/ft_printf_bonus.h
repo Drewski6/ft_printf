@@ -69,6 +69,7 @@ int		ft_p_to_hex_buf(void *p, t_flags *seq_info);
 int		ft_putunbr_buf(unsigned int n, t_flags *seq_info);
 
 //		ft_printf_utils_3_bonus.c
+void	ft_bchar(char *str, char c, size_t len);
 int		ft_iswsp(const char *c);
 int		err_check(const char *seq_start);
 int		subseq_b_and_p(t_flags *seq_info, va_list parg, int fd,

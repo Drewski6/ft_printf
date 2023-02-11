@@ -12,6 +12,26 @@
 
 #include "ft_printf_bonus.h"
 
+/*	*** ft_bchar (42 byte char) ***
+ *
+ *	Sets 'len' number of bytes equal to 'c' starting at address 'str'.
+ *	Takes string 'str', character 'c' and size_t 'len'.
+ *	Returns nothing.
+ */
+
+void	ft_bchar(char *str, char c, size_t len)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < len)
+	{
+		str[i] = c;
+		i++;
+	}
+	return ;
+}
+
 /*	*** ft_iswsp (42 is whitespace or percent) ***
  *
  *	Takes a character 'c'.
